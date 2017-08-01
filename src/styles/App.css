@@ -4,3 +4,9 @@
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
+
+.curtaskbox-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
