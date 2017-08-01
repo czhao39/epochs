@@ -1,0 +1,11 @@
+.task-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+}
+
+.task-item-time-remaining {
+    width: 4rem;
+}

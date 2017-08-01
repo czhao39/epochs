@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "../styles/TaskItem.css";
+
 
 const TaskItem = ({ id, name, timeRemaining, setTimeRemaining }) => {
     return (
         <div className="task-item">
-            <span className="task-item-time-remaining">{timeRemaining}</span>
-            <span className="task-item-name">{name}</span>
+            <div className="task-item-time-remaining">{timeRemaining}</div>
+            <div className="task-item-name">{name}</div>
         </div>
     );
 };
