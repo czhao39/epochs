@@ -17,7 +17,6 @@ export default function tasks(state, action) {
             newState[action.index].timeRemaining = action.time;
             return newState;
         case FINISH_TASK:
-            // TODO: use array slicing or something else
             newState = state.filter((item, index) => index !== action.index);
             return newState;
         default:

@@ -13,10 +13,10 @@
 .task-item-buttons {
     margin-left: auto;
 
-    > span {
+    .fa {
         color: grey;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
         transition: color .2s;
 
         &:hover {
@@ -26,5 +26,9 @@
 
     .done-button:hover {
         color: green;
+    }
+
+    .cancel-button:hover {
+        color: red;
     }
 }

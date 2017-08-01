@@ -10,12 +10,14 @@ const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, finishTask }) 
             <div className="task-item-time-remaining">{timeRemaining}</div>
             <div className="task-item-name">{name}</div>
             <div className="task-item-buttons">
-                <span
-                    className="done-button"
+                <i
+                    className="done-button fa fa-check"
                     onClick={() => finishTask(index, true)}
-                >
-                    done
-                </span>
+                />
+                <i
+                    className="cancel-button fa fa-close"
+                    onClick={() => finishTask(index, false)}
+                />
             </div>
         </div>
     );
