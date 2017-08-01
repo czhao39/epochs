@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "../styles/TaskItem.css";
+import "../styles/TaskItem.scss";
 
 
 const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, finishTask }) => {

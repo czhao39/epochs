@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { Grid, Row, Col } from "react-bootstrap";
 
-import "../styles/App.css";
+import "../styles/App.scss";
 import CurTaskBox from "../containers/CurTaskBox.js";
 import TaskListContainer from "../containers/TaskListContainer";
 

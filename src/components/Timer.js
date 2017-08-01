@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import "../styles/Timer.css";
+import "../styles/Timer.scss";
 
 
 class Timer extends PureComponent {

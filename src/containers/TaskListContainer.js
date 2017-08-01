@@ -5,8 +5,12 @@ import TaskList from "../components/TaskList";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
 import { finishTask } from "../actions/finishTask";
 
-
-class TaskListContainer extends Component {
+@connect(function(state) {
+    return {
+        tasks: state.tasks,
+    };
+}, { setTimeRemaining, finishTask })
+export default class TaskListContainer extends Component {
     render() {
         return (
             <TaskList
@@ -17,10 +21,3 @@ class TaskListContainer extends Component {
         );
     }
 }
-
-// TODO: use a decorator instead
-export default connect(function(state) {
-    return {
-        tasks: state.tasks,
-    };
-}, { setTimeRemaining, finishTask })(TaskListContainer);

@@ -4,7 +4,12 @@ import { connect } from "react-redux";
 
 import Timer from "../components/Timer";
 
-class CurTaskBox extends Component {
+@connect(function(state) {
+    return {
+        task: state.tasks[0],
+    };
+})
+export default class CurTaskBox extends Component {
     render() {
         return (
             <Timer
@@ -13,10 +18,3 @@ class CurTaskBox extends Component {
         );
     }
 }
-
-// TODO: use a decorator instead
-export default connect(function(state) {
-    return {
-        task: state.tasks[0],
-    };
-})(CurTaskBox);
