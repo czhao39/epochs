@@ -9,3 +9,22 @@
 .task-item-time-remaining {
     width: 4rem;
 }
+
+.task-item-buttons {
+    margin-left: auto;
+}
+
+.task-item-buttons > span {
+    color: grey;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: color .2s;
+}
+
+.task-item-buttons > span:hover {
+    cursor: pointer;
+}
+
+.task-item-buttons .done-button:hover {
+    color: green;
+}

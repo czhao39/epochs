@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import TaskList from "../components/TaskList";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
+import { finishTask } from "../actions/finishTask";
 
 
 class TaskListContainer extends Component {
@@ -11,6 +12,7 @@ class TaskListContainer extends Component {
             <TaskList
                 tasks={this.props.tasks}
                 setTimeRemaining={this.props.setTimeRemaining}
+                finishTask={this.props.finishTask}
             />
         );
     }
@@ -21,4 +23,4 @@ export default connect(function(state) {
     return {
         tasks: state.tasks,
     };
-}, { setTimeRemaining })(TaskListContainer);
+}, { setTimeRemaining, finishTask })(TaskListContainer);

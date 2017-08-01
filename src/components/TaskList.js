@@ -13,10 +13,11 @@ class TaskList extends PureComponent {
                         return (
                             <TaskItem
                                 key={index}
-                                id={task.id}
+                                index={index}
                                 name={task.name}
                                 timeRemaining={task.timeRemaining}
                                 setTimeRemaining={this.props.setTimeRemaining}
+                                finishTask={this.props.finishTask}
                             />
                         );
                     })
@@ -29,6 +30,7 @@ class TaskList extends PureComponent {
 TaskList.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
+    finishTask: PropTypes.func.isRequired,
 };
 
 export default TaskList;
