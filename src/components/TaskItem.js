@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "../styles/TaskItem.scss";
+import { secsToDuration, durationToString } from "../helpers";
 
 
-const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, moveTask, finishTask }) => {
+const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, finishTask }) => {
     return (
         <div className="task-item">
-            <div className="task-item-time-remaining">{timeRemaining}</div>
+            <div className="task-item-time-remaining">{durationToString(secsToDuration(secsRemaining))}</div>
             <div className="task-item-name">{name}</div>
             <div className="task-item-buttons">
                 <i
@@ -34,8 +35,7 @@ const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, moveTask, fini
 TaskItem.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    // TODO: change timeRemaining to some kind of time object?
-    timeRemaining: PropTypes.number.isRequired,
+    secsRemaining: PropTypes.number.isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,

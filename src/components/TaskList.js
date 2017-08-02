@@ -15,7 +15,7 @@ class TaskList extends PureComponent {
                                 key={index}
                                 index={index}
                                 name={task.name}
-                                timeRemaining={task.timeRemaining}
+                                secsRemaining={task.secsRemaining}
                                 setTimeRemaining={this.props.setTimeRemaining}
                                 moveTask={this.props.moveTask}
                                 finishTask={this.props.finishTask}

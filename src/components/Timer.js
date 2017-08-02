@@ -2,21 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "../styles/Timer.scss";
+import { secsToDuration, durationToString } from "../helpers";
 
 
-const Timer = ({ timeRemaining, togglePaused }) => {
+const Timer = ({ secsRemaining, togglePaused }) => {
     return (
         <div 
             className="timer"
             onClick={() => togglePaused()}
         >
-            {timeRemaining}
+            {durationToString(secsToDuration(secsRemaining))}
         </div>
     );
 };
 
 Timer.propTypes = {
-    timeRemaining: PropTypes.number.isRequired,
+    secsRemaining: PropTypes.number.isRequired,
     togglePaused: PropTypes.func.isRequired,
 };
 
