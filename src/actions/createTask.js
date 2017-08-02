@@ -3,14 +3,12 @@ export const CREATE_TASK = "CREATE_TASK";
 /**
  * Create a task
  *
- * @param {object} duration
- * @param {string} taskName
+ * @param {object} task
  * @return {object}
  */
-export function createTask(duration, taskName) {
+export function createTask(task) {
     return {
         type: CREATE_TASK,
-        duration,
-        taskName,
+        task,
     };
 }

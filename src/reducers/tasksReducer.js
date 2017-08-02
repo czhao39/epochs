@@ -48,7 +48,7 @@ export default function tasks(state, action) {
             return newState;
         case CREATE_TASK:
             newState = { ...state };
-            newState.list = [...newState.list, { name: action.taskName, secsRemaining: durationToSecs(action.duration) }];
+            newState.list = [...newState.list, action.task];
             return newState;
         default:
             return DEFAULT_TASKS;
