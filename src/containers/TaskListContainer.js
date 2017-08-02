@@ -11,6 +11,19 @@ import { finishTask } from "../actions/finishTask";
     };
 }, { setTimeRemaining, finishTask })
 export default class TaskListContainer extends Component {
+
+    componentDidMount() {
+        setInterval(() => {
+            if (this.props.tasks.length === 0) {
+                return;
+            }
+            this.props.setTimeRemaining(0, this.props.tasks[0].timeRemaining - 1);
+            if (this.props.tasks[0].timeRemaining <= 0) {
+                this.props.finishTask(0, true);
+            }
+        }, 1000);
+    }
+
     render() {
         return (
             <TaskList
