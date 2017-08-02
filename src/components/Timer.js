@@ -1,21 +1,23 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import "../styles/Timer.scss";
 
 
-class Timer extends PureComponent {
-    render() {
-        return (
-            <div className="timer">
-                {this.props.timeRemaining}
-            </div>
-        );
-    }
-}
+const Timer = ({ timeRemaining, togglePaused }) => {
+    return (
+        <div 
+            className="timer"
+            onClick={() => togglePaused()}
+        >
+            {timeRemaining}
+        </div>
+    );
+};
 
 Timer.propTypes = {
     timeRemaining: PropTypes.number.isRequired,
+    togglePaused: PropTypes.func.isRequired,
 };
 
 export default Timer;

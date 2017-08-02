@@ -10,7 +10,7 @@ class App extends PureComponent {
     render() {
         return (
             <Grid fluid>
-                <div className="app-title">Timely</div>
+                <div className="app-title">TimeIt</div>
                 <div className="curtaskbox-wrapper">
                     <CurTaskBox />
                 </div>

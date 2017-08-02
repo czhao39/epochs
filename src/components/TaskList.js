@@ -9,7 +9,7 @@ class TaskList extends PureComponent {
         return (
             <div className="task-list">
                 {
-                    this.props.tasks.map((task, index) => {
+                    this.props.tasks.list.map((task, index) => {
                         return (
                             <TaskItem
                                 key={index}
@@ -29,7 +29,7 @@ class TaskList extends PureComponent {
 }
 
 TaskList.propTypes = {
-    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tasks: PropTypes.object.isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
