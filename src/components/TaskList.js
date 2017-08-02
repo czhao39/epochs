@@ -19,6 +19,7 @@ class TaskList extends PureComponent {
                                 setTimeRemaining={this.props.setTimeRemaining}
                                 moveTask={this.props.moveTask}
                                 finishTask={this.props.finishTask}
+                                toggleEditTaskModal={this.props.toggleEditTaskModal}
                             />
                         );
                     })
@@ -33,6 +34,7 @@ TaskList.propTypes = {
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
+    toggleEditTaskModal: PropTypes.func.isRequired,
 };
 
 export default TaskList;

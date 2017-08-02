@@ -3,6 +3,7 @@ import { MOVE_TASK } from "../actions/moveTask";
 import { FINISH_TASK } from "../actions/finishTask";
 import { TOGGLE_PAUSED } from "../actions/togglePaused";
 import { CREATE_TASK } from "../actions/createTask";
+import { EDIT_TASK } from "../actions/editTask";
 import { durationToSecs } from "../helpers";
 
 
@@ -49,6 +50,11 @@ export default function tasks(state, action) {
         case CREATE_TASK:
             newState = { ...state };
             newState.list = [...newState.list, action.task];
+            return newState;
+        case EDIT_TASK:
+            newState = { ...state };
+            newState.list = [...newState.list];
+            newState.list[action.index] = action.newTask;
             return newState;
         default:
             return DEFAULT_TASKS;

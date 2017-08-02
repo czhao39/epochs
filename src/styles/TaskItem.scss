@@ -21,6 +21,7 @@
 
         &:hover {
             cursor: pointer;
+            color: blue;
         }
     }
 
@@ -30,9 +31,5 @@
 
     .cancel-button:hover {
         color: red;
-    }
-
-    .move-button:hover {
-        color: blue;
     }
 }

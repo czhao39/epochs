@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Modal, Grid, Row, Col, FormControl, Button } from "react-bootstrap";
+import { Grid, Row, Col, FormControl, Button } from "react-bootstrap";
 
-import "../styles/CreateTaskModal.scss";
+import "../styles/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
 
 
@@ -19,8 +19,8 @@ class TaskEditor extends PureComponent {
         } else {
             let duration = secsToDuration(this.props.task.secsRemaining);
             this.state = {
-                hours: duration.hours,
-                mins: duration.mins,
+                hours: duration.hours.toString(),
+                mins: duration.mins.toString(),
                 taskName: this.props.task.name,
             };
         }

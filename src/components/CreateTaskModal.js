@@ -1,8 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Modal, Grid, Row, Col, FormControl, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
-import "../styles/CreateTaskModal.scss";
 import TaskEditor from "./TaskEditor";
 
 
