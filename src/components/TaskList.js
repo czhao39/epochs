@@ -17,6 +17,7 @@ class TaskList extends PureComponent {
                                 name={task.name}
                                 timeRemaining={task.timeRemaining}
                                 setTimeRemaining={this.props.setTimeRemaining}
+                                moveTask={this.props.moveTask}
                                 finishTask={this.props.finishTask}
                             />
                         );
@@ -30,6 +31,7 @@ class TaskList extends PureComponent {
 TaskList.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
+    moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
 };
 

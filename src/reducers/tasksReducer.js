@@ -1,4 +1,5 @@
 import { SET_TIME_REMAINING } from "../actions/setTimeRemaining";
+import { MOVE_TASK } from "../actions/moveTask";
 import { FINISH_TASK } from "../actions/finishTask";
 
 
@@ -15,6 +16,10 @@ export default function tasks(state, action) {
         case SET_TIME_REMAINING:
             newState = [ ...state ];
             newState[action.index].timeRemaining = action.time;
+            return newState;
+        case MOVE_TASK:
+            newState = [ ...state ];
+            newState.splice(action.newIndex, 0, newState.splice(action.index, 1)[0]);
             return newState;
         case FINISH_TASK:
             newState = state.filter((item, index) => index !== action.index);

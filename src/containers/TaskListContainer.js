@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 
 import TaskList from "../components/TaskList";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
+import { moveTask } from "../actions/moveTask";
 import { finishTask } from "../actions/finishTask";
 
 @connect(function(state) {
     return {
         tasks: state.tasks,
     };
-}, { setTimeRemaining, finishTask })
+}, { setTimeRemaining, moveTask, finishTask })
 export default class TaskListContainer extends Component {
 
     componentDidMount() {
@@ -29,6 +30,7 @@ export default class TaskListContainer extends Component {
             <TaskList
                 tasks={this.props.tasks}
                 setTimeRemaining={this.props.setTimeRemaining}
+                moveTask={this.props.moveTask}
                 finishTask={this.props.finishTask}
             />
         );

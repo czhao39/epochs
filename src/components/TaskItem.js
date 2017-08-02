@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../styles/TaskItem.scss";
 
 
-const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, finishTask }) => {
+const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, moveTask, finishTask }) => {
     return (
         <div className="task-item">
             <div className="task-item-time-remaining">{timeRemaining}</div>
@@ -18,6 +18,14 @@ const TaskItem = ({ index, name, timeRemaining, setTimeRemaining, finishTask }) 
                     className="cancel-button fa fa-close"
                     onClick={() => finishTask(index, false)}
                 />
+                <i
+                    className="move-button fa fa-chevron-up"
+                    onClick={() => moveTask(index, index-1)}
+                />
+                <i
+                    className="move-button fa fa-chevron-down"
+                    onClick={() => moveTask(index, index+1)}
+                />
             </div>
         </div>
     );
@@ -29,6 +37,7 @@ TaskItem.propTypes = {
     // TODO: change timeRemaining to some kind of time object?
     timeRemaining: PropTypes.number.isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
+    moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
 };
 
