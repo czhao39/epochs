@@ -2,6 +2,7 @@ import { SET_TIME_REMAINING } from "../actions/setTimeRemaining";
 import { MOVE_TASK } from "../actions/moveTask";
 import { FINISH_TASK } from "../actions/finishTask";
 import { TOGGLE_PAUSED } from "../actions/togglePaused";
+import { CREATE_TASK } from "../actions/createTask";
 import { durationToSecs } from "../helpers";
 
 
@@ -25,10 +26,12 @@ export default function tasks(state, action) {
     switch (action.type) {
         case SET_TIME_REMAINING:
             newState = { ...state };
+            newState.list = [...newState.list];
             newState.list[action.index].secsRemaining = typeof action.time === "object" ? durationToSecs(action.time) : action.time;
             return newState;
         case MOVE_TASK:
             newState = { ...state };
+            newState.list = [...newState.list];
             newState.list.splice(action.newIndex, 0, newState.list.splice(action.index, 1)[0]);
             return newState;
         case FINISH_TASK:
@@ -42,6 +45,10 @@ export default function tasks(state, action) {
             } else {
                 newState.paused = action.paused;
             }
+            return newState;
+        case CREATE_TASK:
+            newState = { ...state };
+            newState.list = [...newState.list, { name: action.taskName, secsRemaining: durationToSecs(action.duration) }];
             return newState;
         default:
             return DEFAULT_TASKS;

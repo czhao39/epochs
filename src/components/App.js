@@ -2,7 +2,8 @@ import React, { PureComponent } from "react";
 import { Grid, Row, Col } from "react-bootstrap";
 
 import "../styles/App.scss";
-import CurTaskBox from "../containers/CurTaskBox.js";
+import CurTaskBox from "../containers/CurTaskBox";
+import TaskListControlsBox from "../containers/TaskListControlsBox";
 import TaskListContainer from "../containers/TaskListContainer";
 
 
@@ -14,6 +15,7 @@ class App extends PureComponent {
                 <div className="curtaskbox-wrapper">
                     <CurTaskBox />
                 </div>
+                <TaskListControlsBox />
                 <Row>
                     <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
                         <TaskListContainer />
