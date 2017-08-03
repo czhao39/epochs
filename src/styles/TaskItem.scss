@@ -21,7 +21,11 @@
 
         &:hover {
             cursor: pointer;
-            color: blue;
+            color: black;
+        }
+
+        &.fa-angle-up, &.fa-angle-down, &.fa-angle-double-up, &.fa-angle-double-down {
+            font-weight: bold;
         }
     }
 
@@ -31,5 +35,9 @@
 
     .cancel-button:hover {
         color: red;
+    }
+
+    .edit-button:hover {
+        color: blue;
     }
 }

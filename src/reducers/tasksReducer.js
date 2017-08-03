@@ -33,6 +33,9 @@ export default function tasks(state, action) {
         case MOVE_TASK:
             newState = { ...state };
             newState.list = [...newState.list];
+            if (action.newIndex < 0) {
+                action.newIndex += newState.list.length;
+            }
             newState.list.splice(action.newIndex, 0, newState.list.splice(action.index, 1)[0]);
             return newState;
         case FINISH_TASK:

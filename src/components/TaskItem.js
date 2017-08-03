@@ -20,16 +20,24 @@ const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, fini
                     onClick={() => finishTask(index, false)}
                 />
                 <i
-                    className="fa fa-pencil"
+                    className="edit-button fa fa-pencil"
                     onClick={() => toggleEditTaskModal(true, index)}
                 />
                 <i
-                    className="fa fa-chevron-up"
+                    className="fa fa-angle-up"
                     onClick={() => moveTask(index, index-1)}
                 />
                 <i
-                    className="fa fa-chevron-down"
+                    className="fa fa-angle-down"
                     onClick={() => moveTask(index, index+1)}
+                />
+                <i
+                    className="fa fa-angle-double-up"
+                    onClick={() => moveTask(index, 0)}
+                />
+                <i
+                    className="fa fa-angle-double-down"
+                    onClick={() => moveTask(index, -1)}
                 />
             </div>
         </div>
