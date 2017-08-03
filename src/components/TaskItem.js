@@ -12,31 +12,31 @@ const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, fini
             <div className="task-item-name">{name}</div>
             <div className="task-item-buttons">
                 <i
-                    className="done-button fa fa-check"
+                    className="done-button fa fa-fw fa-check"
                     onClick={() => finishTask(index, true)}
                 />
                 <i
-                    className="cancel-button fa fa-close"
+                    className="cancel-button fa fa-fw fa-close"
                     onClick={() => finishTask(index, false)}
                 />
                 <i
-                    className="edit-button fa fa-pencil"
+                    className="edit-button fa fa-fw fa-pencil"
                     onClick={() => toggleEditTaskModal(true, index)}
                 />
                 <i
-                    className="fa fa-angle-up"
+                    className="fa fa-fw fa-angle-up"
                     onClick={() => moveTask(index, index-1)}
                 />
                 <i
-                    className="fa fa-angle-down"
+                    className="fa fa-fw fa-angle-down"
                     onClick={() => moveTask(index, index+1)}
                 />
                 <i
-                    className="fa fa-angle-double-up"
+                    className="fa fa-fw fa-angle-double-up"
                     onClick={() => moveTask(index, 0)}
                 />
                 <i
-                    className="fa fa-angle-double-down"
+                    className="fa fa-fw fa-angle-double-down"
                     onClick={() => moveTask(index, -1)}
                 />
             </div>
