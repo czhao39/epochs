@@ -14,10 +14,6 @@ import { editTask } from "../actions/editTask";
     };
 }, { setTimeRemaining, moveTask, finishTask, editTask })
 export default class TaskListContainer extends Component {
-    state = {
-        showEditTaskModal: false,
-    };
-
     componentDidMount() {
         setInterval(() => {
             if (this.props.tasks.paused || this.props.tasks.list.length === 0) {
@@ -30,25 +26,14 @@ export default class TaskListContainer extends Component {
         }, 1000);
     }
 
-    /**
-     * Toggle task editor modal
-     *
-     * @param {number} index Index of the task being editted
-     * @param {boolean} show
-     * @return {void}
-     */
-    toggleEditTaskModal(show, index) {
-        this.setState({ showEditTaskModal: show, editIndex: index });
-    }
-
     render() {
         return (
             <div>
                 <EditTaskModal
-                    index={this.state.editIndex}
-                    task={this.state.editIndex === undefined ? null : this.props.tasks.list[this.state.editIndex]}
-                    showEditTaskModal={this.state.showEditTaskModal}
-                    toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
+                    index={this.props.editIndex}
+                    task={this.props.editIndex === undefined ? null : this.props.tasks.list[this.props.editIndex]}
+                    showEditTaskModal={this.props.showEditTaskModal}
+                    toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                     editTask={this.props.editTask}
                 />
                 <TaskList
@@ -56,7 +41,7 @@ export default class TaskListContainer extends Component {
                     setTimeRemaining={this.props.setTimeRemaining}
                     moveTask={this.props.moveTask}
                     finishTask={this.props.finishTask}
-                    toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
+                    toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                 />
             </div>
         );

@@ -12,32 +12,4 @@
 
 .task-item-buttons {
     margin-left: auto;
-
-    .fa {
-        color: grey;
-        margin-left: .5rem;
-        margin-right: .5rem;
-        transition: color .2s;
-
-        &:hover {
-            cursor: pointer;
-            color: black;
-        }
-
-        &.fa-angle-up, &.fa-angle-down, &.fa-angle-double-up, &.fa-angle-double-down {
-            font-weight: bold;
-        }
-    }
-
-    .done-button:hover {
-        color: green;
-    }
-
-    .cancel-button:hover {
-        color: red;
-    }
-
-    .edit-button:hover {
-        color: blue;
-    }
 }
