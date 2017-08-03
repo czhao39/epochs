@@ -26,7 +26,7 @@ class App extends PureComponent {
     render() {
         return (
             <Grid fluid>
-                <div className="app-title">Tasks</div>
+                <div className="app-title">Epochs</div>
                 <div className="curtaskbox-wrapper">
                     <CurTaskBox
                         toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}

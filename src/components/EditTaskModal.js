@@ -26,7 +26,7 @@ class EditTaskModal extends PureComponent {
                 dialogClassName="edit-task-modal"
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Edit task</Modal.Title>
+                    <Modal.Title>Edit epoch</Modal.Title>
                     <Modal.Body>
                         <TaskEditor
                             task={this.props.task}

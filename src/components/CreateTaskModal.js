@@ -26,7 +26,7 @@ class CreateTaskModal extends PureComponent {
                 dialogClassName="create-task-modal"
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Create a task</Modal.Title>
+                    <Modal.Title>Create an epoch</Modal.Title>
                     <Modal.Body>
                         <TaskEditor submitTask={this.submitTask} />
                     </Modal.Body>
