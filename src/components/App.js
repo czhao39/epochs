@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Row, Col } from "react-bootstrap";
+import { Navbar, Grid, Row, Col } from "react-bootstrap";
 
 import "../styles/App.scss";
 import TotalInfoBox from "./TotalInfoBox";
@@ -11,50 +11,58 @@ import FinishedTaskList from "./FinishedTaskList";
 
 const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => {
     return (
-        <Grid fluid>
-            <div className="total-info-box-wrapper">
-                <TotalInfoBox
-                    tasksArray={tasksArray}
-                    finishedTasks={finishedTasks}
-                />
-            </div>
-            <div className="app-title">Epochs</div>
-            <div className="cur-task-box-wrapper">
-                <CurTaskBox
-                    toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
-                />
-            </div>
-            <div className="task-list-controls-box-wrapper">
-                <TaskListControlsBox />
-            </div>
-            <Row>
-                <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
-                    <div className="task-list-wrapper">
-                        <TaskListContainer
-                            editIndex={editIndex}
-                            showEditTaskModal={showEditTaskModal}
-                            toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
-                        />
-                    </div>
-                </Col>
-            </Row>
-            {
-                finishedTasks.length > 0 ?
-                    <div>
-                        <hr />
-                        <div className="finished-title">Finished Epochs</div>
-                        <Row>
-                            <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
-                                <FinishedTaskList
-                                    finishedTasks={finishedTasks}
-                                />
-                            </Col>
-                        </Row>
-                    </div>
-                :
-                    <div></div>
-            }
-        </Grid>
+        <div>
+            <Navbar fluid staticTop>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        Epochs
+                    </Navbar.Brand>
+                </Navbar.Header>
+            </Navbar>
+            <Grid fluid>
+                <div className="total-info-box-wrapper">
+                    <TotalInfoBox
+                        tasksArray={tasksArray}
+                        finishedTasks={finishedTasks}
+                    />
+                </div>
+                <div className="cur-task-box-wrapper">
+                    <CurTaskBox
+                        toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
+                    />
+                </div>
+                <div className="task-list-controls-box-wrapper">
+                    <TaskListControlsBox />
+                </div>
+                <Row>
+                    <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
+                        <div className="task-list-wrapper">
+                            <TaskListContainer
+                                editIndex={editIndex}
+                                showEditTaskModal={showEditTaskModal}
+                                toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
+                            />
+                        </div>
+                    </Col>
+                </Row>
+                {
+                    finishedTasks.length > 0 ?
+                        <div>
+                            <hr />
+                            <div className="finished-title">Finished Epochs</div>
+                            <Row>
+                                <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
+                                    <FinishedTaskList
+                                        finishedTasks={finishedTasks}
+                                    />
+                                </Col>
+                            </Row>
+                        </div>
+                    :
+                        <div></div>
+                }
+            </Grid>
+        </div>
     );
 };
 

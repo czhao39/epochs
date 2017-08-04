@@ -43,17 +43,28 @@ hr {
     color: orange;
 }
 
+.navbar {
+    display: flex;
+    justify-content: center;
+
+    .navbar-brand {
+        float: none;
+        margin: 0 !important;
+        height: auto;
+        line-height: inherit;
+        font-size: 3em;
+        color: black;
+
+        &:hover {
+            color: black;
+        }
+    }
+}
+
 .total-info-box-wrapper {
     width: 80%;
     margin: 2rem auto;
     font-size: 1.2em;
-}
-
-.app-title {
-    font-size: 4em;
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .cur-task-box-wrapper {
