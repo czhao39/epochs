@@ -4,12 +4,15 @@ import PropTypes from "prop-types";
 import { secsToDuration, durationToString } from "../helpers";
 
 
-const TotalInfoBox = ({ tasksArray }) => {
+const TotalInfoBox = ({ tasksArray, finishedTasks }) => {
     let totalSecsRemaining = tasksArray.reduce((partialSum, task) => partialSum + task.secsRemaining, 0);
     return (
         <div className="total-info-box">
             <div className="total-time-remaining">
-                Total time remaining:&ensp;{durationToString(secsToDuration(totalSecsRemaining))}
+                Total time remaining:&ensp;<strong>{durationToString(secsToDuration(totalSecsRemaining))}</strong>
+            </div>
+            <div className="finished-tasks-count">
+                You've finished <strong>{finishedTasks.length}</strong> epochs!
             </div>
         </div>
     );
@@ -17,6 +20,7 @@ const TotalInfoBox = ({ tasksArray }) => {
 
 TotalInfoBox.propTypes = {
     tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+    finishedTasks: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default TotalInfoBox;

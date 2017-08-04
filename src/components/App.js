@@ -15,6 +15,7 @@ const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEd
             <div className="total-info-box-wrapper">
                 <TotalInfoBox
                     tasksArray={tasksArray}
+                    finishedTasks={finishedTasks}
                 />
             </div>
             <div className="app-title">Epochs</div>
