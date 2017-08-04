@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { Grid, Row, Col } from "react-bootstrap";
 
 import "../styles/App.scss";
@@ -6,39 +7,23 @@ import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControlsBox from "../containers/TaskListControlsBox";
 import TaskListContainer from "../containers/TaskListContainer";
 
-
 class App extends PureComponent {
-    state = {
-        showEditTaskModal: false,
-    };
-
-    /**
-     * Toggle task editor modal
-     *
-     * @param {number} index Index of the task being edited
-     * @param {boolean} show
-     * @return {void}
-     */
-    toggleEditTaskModal(show, index) {
-        this.setState({ showEditTaskModal: show, editIndex: index });
-    }
-
     render() {
         return (
             <Grid fluid>
                 <div className="app-title">Epochs</div>
                 <div className="curtaskbox-wrapper">
                     <CurTaskBox
-                        toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
+                        toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                     />
                 </div>
                 <TaskListControlsBox />
                 <Row>
                     <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
                         <TaskListContainer
-                            editIndex={this.state.editIndex}
-                            showEditTaskModal={this.state.showEditTaskModal}
-                            toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
+                            editIndex={this.props.editIndex}
+                            showEditTaskModal={this.props.showEditTaskModal}
+                            toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                         />
                     </Col>
                 </Row>
@@ -46,5 +31,11 @@ class App extends PureComponent {
         );
     }
 }
+
+App.propTypes = {
+    editIndex: PropTypes.number,
+    showEditTaskModal: PropTypes.bool.isRequired,
+    toggleEditTaskModal: PropTypes.func.isRequired,
+};
 
 export default App;
