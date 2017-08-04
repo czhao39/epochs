@@ -1,36 +1,34 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import TaskItem from "./TaskItem";
 
 
-class TaskList extends PureComponent {
-    render() {
-        return (
-            <div className="task-list">
-                {
-                    this.props.tasks.list.map((task, index) => {
-                        return (
-                            <TaskItem
-                                key={index}
-                                index={index}
-                                name={task.name}
-                                secsRemaining={task.secsRemaining}
-                                setTimeRemaining={this.props.setTimeRemaining}
-                                moveTask={this.props.moveTask}
-                                finishTask={this.props.finishTask}
-                                toggleEditTaskModal={this.props.toggleEditTaskModal}
-                            />
-                        );
-                    })
-                }
-            </div>
-        );
-    }
+const TaskList = ({ tasksArray, setTimeRemaining, moveTask, finishTask, toggleEditTaskModal }) => {
+    return (
+        <div className="task-list">
+            {
+                tasksArray.map((task, index) => {
+                    return (
+                        <TaskItem
+                            key={index}
+                            index={index}
+                            name={task.name}
+                            secsRemaining={task.secsRemaining}
+                            setTimeRemaining={setTimeRemaining}
+                            moveTask={moveTask}
+                            finishTask={finishTask}
+                            toggleEditTaskModal={toggleEditTaskModal}
+                        />
+                    );
+                })
+            }
+        </div>
+    );
 }
 
 TaskList.propTypes = {
-    tasks: PropTypes.object.isRequired,
+    tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,

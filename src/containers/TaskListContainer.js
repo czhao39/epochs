@@ -25,7 +25,7 @@ export default class TaskListContainer extends Component {
                     editTask={this.props.editTask}
                 />
                 <TaskList
-                    tasks={this.props.tasks}
+                    tasksArray={this.props.tasks.list}
                     setTimeRemaining={this.props.setTimeRemaining}
                     moveTask={this.props.moveTask}
                     finishTask={this.props.finishTask}
