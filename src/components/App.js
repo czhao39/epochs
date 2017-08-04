@@ -11,16 +11,20 @@ import TaskListContainer from "../containers/TaskListContainer";
 const App = ({ tasksArray, editIndex, showEditTaskModal, toggleEditTaskModal }) => {
     return (
         <Grid fluid>
-            <TotalInfoBox
-                tasksArray={tasksArray}
-            />
+            <div className="total-info-box-wrapper">
+                <TotalInfoBox
+                    tasksArray={tasksArray}
+                />
+            </div>
             <div className="app-title">Epochs</div>
-            <div className="curtaskbox-wrapper">
+            <div className="cur-task-box-wrapper">
                 <CurTaskBox
                     toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
                 />
             </div>
-            <TaskListControlsBox />
+            <div className="task-list-controls-box-wrapper">
+                <TaskListControlsBox />
+            </div>
             <Row>
                 <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
                     <TaskListContainer

@@ -16,11 +16,13 @@ export default class CurTaskBox extends Component {
     render() {
         return (
             <div>
-                <Timer
-                    paused={this.props.tasks.paused}
-                    secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
-                    togglePaused={this.props.togglePaused}
-                />
+                <div className="timer-wrapper">
+                    <Timer
+                        paused={this.props.tasks.paused}
+                        secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
+                        togglePaused={this.props.togglePaused}
+                    />
+                </div>
                 <div className="cur-task">
                     {this.props.tasks.list[0].name}
                 </div>

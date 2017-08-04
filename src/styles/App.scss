@@ -6,19 +6,6 @@ button {
     transition: .2s;
 }
 
-.app-title {
-    font-size: 4em;
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
-.curtaskbox-wrapper {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .fa {
     color: grey;
     margin-left: .3em;
@@ -45,4 +32,30 @@ button {
 
 .edit-button:hover {
     color: orange;
+}
+
+.total-info-box-wrapper {
+    width: 80%;
+    margin: 2rem auto;
+    font-size: 1.2em;
+}
+
+.app-title {
+    font-size: 4em;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cur-task-box-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 2em;
+}
+
+.task-list-controls-box-wrapper {
+    font-size: 2em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }

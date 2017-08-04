@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "../styles/TotalInfoBox.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 
