@@ -18,10 +18,10 @@
 
     .pause-overlay {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        top: 5%;
+        bottom: 5%;
+        left: 5%;
+        right: 5%;
         border-radius: 100%;
         z-index: 1;
         display: flex;
@@ -29,7 +29,7 @@
         justify-content: center;
         background-color: black;
         opacity: 0;
-        transition: opacity .2s;
+        transition: top .2s, bottom .2s, left .2s, right .2s, opacity .2s;
 
         .fa {
             color: white;
@@ -41,6 +41,10 @@
 
         &.paused {
             opacity: 0.5;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
     }
 }
