@@ -1,3 +1,5 @@
+@import "constants";
+
 .task-item {
     padding: 10px;
     border: 1px solid black;
@@ -7,9 +9,17 @@
     z-index: 0;
 
     &.current {
-        color: blue;
-        border-color: blue;
-        border-width: 3px;
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: white;
+
+        .task-item-buttons {
+            background-color: $primary-color;
+
+            .fa:hover {
+                color: #8AF;
+            }
+        }
     }
 }
 

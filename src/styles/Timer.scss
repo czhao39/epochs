@@ -1,3 +1,5 @@
+@import "constants";
+
 .timer {
     position: relative;
     z-index: 0;
@@ -7,7 +9,7 @@
     width: 5em;
     height: 5em;
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid $primary-color;
     border-radius: 100%;
 
     &.paused {
@@ -25,7 +27,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background-color: black;
+        background-color: $primary-color;
         opacity: 0;
         transition: top .2s, bottom .2s, left .2s, right .2s, opacity .2s;
 

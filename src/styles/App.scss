@@ -1,3 +1,5 @@
+@import "constants";
+
 html, body {
     font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
@@ -32,20 +34,22 @@ hr {
 }
 
 .done-button:hover {
-    color: green;
+    color: green !important;
 }
 
 .cancel-button:hover {
-    color: red;
+    color: red !important;
 }
 
 .edit-button:hover {
-    color: orange;
+    color: orange !important;
 }
 
 .navbar {
     display: flex;
     justify-content: center;
+    background-color: $primary-color;
+    color: white;
 
     .navbar-brand {
         float: none;
@@ -53,10 +57,10 @@ hr {
         height: auto;
         line-height: inherit;
         font-size: 3em;
-        color: black;
+        color: inherit;
 
         &:hover {
-            color: black;
+            color: inherit;
         }
     }
 }
