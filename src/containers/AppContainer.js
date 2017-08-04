@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import App from "../components/App";
@@ -11,7 +11,7 @@ import { finishTask } from "../actions/finishTask";
         finishedTasks: state.finishedTasks,
     };
 }, { setTimeRemaining, finishTask })
-class AppContainer extends Component {
+class AppContainer extends PureComponent {
     state = {
         showEditTaskModal: false,
     };

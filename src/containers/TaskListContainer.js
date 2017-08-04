@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import EditTaskModal from "../components/EditTaskModal";
@@ -14,7 +14,7 @@ import { editTask } from "../actions/editTask";
         tasks: state.tasks,
     };
 }, { setTimeRemaining, moveTask, finishTask, createTask, editTask })
-export default class TaskListContainer extends Component {
+export default class TaskListContainer extends PureComponent {
     render() {
         return (
             <div>

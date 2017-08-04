@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import FinishedTaskList from "../components/FinishedTaskList";
@@ -9,7 +9,7 @@ import { removeFinishedTask } from "../actions/removeFinishedTask";
         finishedTasks: state.finishedTasks,
     };
 }, { removeFinishedTask })
-export default class FinishedTaskListContainer extends Component {
+export default class FinishedTaskListContainer extends PureComponent {
     render() {
         return (
             <div>

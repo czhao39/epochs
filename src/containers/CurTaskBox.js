@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import "../styles/CurTaskBox.scss";
@@ -12,7 +12,7 @@ import { finishTask } from "../actions/finishTask";
         tasks: state.tasks,
     };
 }, { togglePaused, finishTask })
-export default class CurTaskBox extends Component {
+export default class CurTaskBox extends PureComponent {
     render() {
         return (
             <div>
