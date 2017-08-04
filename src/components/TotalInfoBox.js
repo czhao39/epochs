@@ -11,9 +11,14 @@ const TotalInfoBox = ({ tasksArray, finishedTasks }) => {
             <div className="total-time-remaining">
                 Total time remaining:&ensp;<strong>{durationToString(secsToDuration(totalSecsRemaining))}</strong>
             </div>
-            <div className="finished-tasks-count">
-                You've finished <strong>{finishedTasks.length}</strong> epochs!
-            </div>
+            {
+                finishedTasks.length > 0 ?
+                    <div className="finished-tasks-count">
+                        You've finished <strong>{finishedTasks.length}</strong> epochs!
+                    </div>
+                :
+                    <div></div>
+            }
         </div>
     );
 }

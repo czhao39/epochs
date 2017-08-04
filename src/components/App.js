@@ -38,15 +38,22 @@ const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEd
                     </div>
                 </Col>
             </Row>
-            <hr />
-            <div className="finished-title">Finished Epochs</div>
-            <Row>
-                <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
-                    <FinishedTaskList
-                        finishedTasks={finishedTasks}
-                    />
-                </Col>
-            </Row>
+            {
+                finishedTasks.length > 0 ?
+                    <div>
+                        <hr />
+                        <div className="finished-title">Finished Epochs</div>
+                        <Row>
+                            <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
+                                <FinishedTaskList
+                                    finishedTasks={finishedTasks}
+                                />
+                            </Col>
+                        </Row>
+                    </div>
+                :
+                    <div></div>
+            }
         </Grid>
     );
 };
