@@ -6,13 +6,14 @@ import TaskList from "../components/TaskList";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
 import { moveTask } from "../actions/moveTask";
 import { finishTask } from "../actions/finishTask";
+import { createTask } from "../actions/createTask";
 import { editTask } from "../actions/editTask";
 
 @connect(function(state) {
     return {
         tasks: state.tasks,
     };
-}, { setTimeRemaining, moveTask, finishTask, editTask })
+}, { setTimeRemaining, moveTask, finishTask, createTask, editTask })
 export default class TaskListContainer extends Component {
     render() {
         return (
@@ -29,6 +30,7 @@ export default class TaskListContainer extends Component {
                     setTimeRemaining={this.props.setTimeRemaining}
                     moveTask={this.props.moveTask}
                     finishTask={this.props.finishTask}
+                    createTask={this.props.createTask}
                     toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                 />
             </div>

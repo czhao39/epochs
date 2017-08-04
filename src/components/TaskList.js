@@ -5,7 +5,7 @@ import "../styles/TaskList.scss";
 import TaskItem from "./TaskItem";
 
 
-const TaskList = ({ tasksArray, setTimeRemaining, moveTask, finishTask, toggleEditTaskModal }) => {
+const TaskList = ({ tasksArray, setTimeRemaining, moveTask, finishTask, createTask, toggleEditTaskModal }) => {
     return (
         <div className="task-list">
             {
@@ -19,6 +19,7 @@ const TaskList = ({ tasksArray, setTimeRemaining, moveTask, finishTask, toggleEd
                             setTimeRemaining={setTimeRemaining}
                             moveTask={moveTask}
                             finishTask={finishTask}
+                            createTask={createTask}
                             toggleEditTaskModal={toggleEditTaskModal}
                         />
                     );
@@ -33,6 +34,7 @@ TaskList.propTypes = {
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
+    createTask: PropTypes.func.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,
 };
 

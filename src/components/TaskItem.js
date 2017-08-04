@@ -5,7 +5,7 @@ import "../styles/TaskItem.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 
-const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, finishTask, toggleEditTaskModal }) => {
+const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, finishTask, createTask, toggleEditTaskModal }) => {
     return (
         <div className={`task-item${index === 0 ? " current" : ""}`}>
             <div className="task-item-time-remaining">{durationToString(secsToDuration(secsRemaining))}</div>
@@ -22,6 +22,10 @@ const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, fini
                 <i
                     className="edit-button fa fa-fw fa-pencil"
                     onClick={() => toggleEditTaskModal(true, index)}
+                />
+                <i
+                    className="fa fa-fw fa-copy"
+                    onClick={() => createTask({ name, secsRemaining })}
                 />
                 <i
                     className="fa fa-fw fa-angle-up"
@@ -51,6 +55,7 @@ TaskItem.propTypes = {
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
+    createTask: PropTypes.func.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,
 };
 
