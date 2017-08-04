@@ -7,8 +7,9 @@ import TotalInfoBox from "./TotalInfoBox";
 import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControlsBox from "../containers/TaskListControlsBox";
 import TaskListContainer from "../containers/TaskListContainer";
+import FinishedTaskList from "./FinishedTaskList";
 
-const App = ({ tasksArray, editIndex, showEditTaskModal, toggleEditTaskModal }) => {
+const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => {
     return (
         <Grid fluid>
             <div className="total-info-box-wrapper">
@@ -27,10 +28,21 @@ const App = ({ tasksArray, editIndex, showEditTaskModal, toggleEditTaskModal }) 
             </div>
             <Row>
                 <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
-                    <TaskListContainer
-                        editIndex={editIndex}
-                        showEditTaskModal={showEditTaskModal}
-                        toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
+                    <div className="task-list-wrapper">
+                        <TaskListContainer
+                            editIndex={editIndex}
+                            showEditTaskModal={showEditTaskModal}
+                            toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
+                        />
+                    </div>
+                </Col>
+            </Row>
+            <hr />
+            <div className="finished-title">Finished Epochs</div>
+            <Row>
+                <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
+                    <FinishedTaskList
+                        finishedTasks={finishedTasks}
                     />
                 </Col>
             </Row>
@@ -40,6 +52,7 @@ const App = ({ tasksArray, editIndex, showEditTaskModal, toggleEditTaskModal }) 
 
 App.propTypes = {
     tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+    finishedTasks: PropTypes.arrayOf(PropTypes.string).isRequired,
     editIndex: PropTypes.number,
     showEditTaskModal: PropTypes.bool.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,

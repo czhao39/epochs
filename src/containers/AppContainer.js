@@ -8,6 +8,7 @@ import { finishTask } from "../actions/finishTask";
 @connect(function(state) {
     return {
         tasks: state.tasks,
+        finishedTasks: state.finishedTasks,
     };
 }, { setTimeRemaining, finishTask })
 class AppContainer extends Component {
@@ -22,7 +23,7 @@ class AppContainer extends Component {
             }
             this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - 1);
             if (this.props.tasks.list[0].secsRemaining <= 0) {
-                this.props.finishTask(0, true);
+                this.props.finishTask(0, true, this.props.tasks.list[0].name);
             }
         }, 1000);
     }
@@ -42,6 +43,7 @@ class AppContainer extends Component {
         return (
             <App
                 tasksArray={this.props.tasks.list}
+                finishedTasks={this.props.finishedTasks}
                 editIndex={this.state.editIndex}
                 showEditTaskModal={this.state.showEditTaskModal}
                 toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}

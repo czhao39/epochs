@@ -13,7 +13,7 @@ const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, fini
             <div className="task-item-buttons">
                 <i
                     className="done-button fa fa-fw fa-check"
-                    onClick={() => finishTask(index, true)}
+                    onClick={() => finishTask(index, true, name)}
                 />
                 <i
                     className="cancel-button fa fa-fw fa-close"

@@ -29,7 +29,7 @@ export default class CurTaskBox extends Component {
                 <div className="cur-task-controls">
                     <i
                         className="done-button fa fa-fw fa-check"
-                        onClick={() => this.props.finishTask(0, true)}
+                        onClick={() => this.props.finishTask(0, true, this.props.tasks.list[0].name)}
                     />
                     <i
                         className="cancel-button fa fa-fw fa-close"
