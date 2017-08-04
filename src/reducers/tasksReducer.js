@@ -40,7 +40,7 @@ export default function tasks(state=DEFAULT_TASKS, action) {
             return newState;
         case FINISH_TASK:
             newState = { ...state };
-            newState.list = state.list.filter((item, index) => index !== action.index);
+            newState.list = state.list.filter((task, index) => index !== action.index);
             return newState;
         case TOGGLE_PAUSED:
             newState = { ...state };

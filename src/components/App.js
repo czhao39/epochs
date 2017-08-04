@@ -7,7 +7,7 @@ import TotalInfoBox from "./TotalInfoBox";
 import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControlsBox from "../containers/TaskListControlsBox";
 import TaskListContainer from "../containers/TaskListContainer";
-import FinishedTaskList from "./FinishedTaskList";
+import FinishedTaskListContainer from "../containers/FinishedTaskListContainer";
 
 const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => {
     return (
@@ -52,9 +52,7 @@ const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEd
                             <div className="finished-title">Finished Epochs</div>
                             <Row>
                                 <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
-                                    <FinishedTaskList
-                                        finishedTasks={finishedTasks}
-                                    />
+                                    <FinishedTaskListContainer />
                                 </Col>
                             </Row>
                         </div>

@@ -1,4 +1,5 @@
 import { FINISH_TASK } from "../actions/finishTask";
+import { REMOVE_FINISHED_TASK } from "../actions/removeFinishedTask";
 
 
 /**
@@ -17,6 +18,9 @@ export default function finishedTasks(state=[], action) {
                 return newState;
             }
             return state;
+        case REMOVE_FINISHED_TASK:
+            newState = state.filter((task, index) => index !== action.index);
+            return newState;
         default:
             return state;
     }

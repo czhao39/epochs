@@ -5,7 +5,7 @@ import "../styles/TaskList.scss";
 import FinishedTaskItem from "./FinishedTaskItem";
 
 
-const FinishedTaskList = ({ finishedTasks }) => {
+const FinishedTaskList = ({ finishedTasks, removeFinishedTask }) => {
     return (
         <div className="task-list">
             {
@@ -15,6 +15,7 @@ const FinishedTaskList = ({ finishedTasks }) => {
                             key={index}
                             index={index}
                             name={task}
+                            removeFinishedTask={removeFinishedTask}
                         />
                     );
                 })
@@ -25,6 +26,7 @@ const FinishedTaskList = ({ finishedTasks }) => {
 
 FinishedTaskList.propTypes = {
     finishedTasks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    removeFinishedTask: PropTypes.func.isRequired,
 };
 
 export default FinishedTaskList;
