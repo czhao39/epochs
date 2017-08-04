@@ -2,10 +2,14 @@ html, body {
     font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+button {
+    transition: .2s;
+}
+
 .app-title {
     font-size: 4em;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 

@@ -41,6 +41,7 @@ class AppContainer extends Component {
     render() {
         return (
             <App
+                tasksArray={this.props.tasks.list}
                 editIndex={this.state.editIndex}
                 showEditTaskModal={this.state.showEditTaskModal}
                 toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
