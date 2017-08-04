@@ -1,52 +1,61 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import "../styles/TaskItem.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 
-const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, finishTask, createTask, toggleEditTaskModal }) => {
-    return (
-        <div className={`task-item${index === 0 ? " current" : ""}`}>
-            <div className="task-item-time-remaining">{durationToString(secsToDuration(secsRemaining))}</div>
-            <div className="task-item-name">{name}</div>
-            <div className="task-item-buttons">
-                <i
-                    className="done-button fa fa-fw fa-check"
-                    onClick={() => finishTask(index, true, name)}
-                />
-                <i
-                    className="cancel-button fa fa-fw fa-close"
-                    onClick={() => finishTask(index, false)}
-                />
-                <i
-                    className="edit-button fa fa-fw fa-pencil"
-                    onClick={() => toggleEditTaskModal(true, index)}
-                />
-                <i
-                    className="fa fa-fw fa-copy"
-                    onClick={() => createTask({ name, secsRemaining })}
-                />
-                <i
-                    className="fa fa-fw fa-angle-up"
-                    onClick={() => moveTask(index, index-1)}
-                />
-                <i
-                    className="fa fa-fw fa-angle-down"
-                    onClick={() => moveTask(index, index+1)}
-                />
-                <i
-                    className="fa fa-fw fa-angle-double-up"
-                    onClick={() => moveTask(index, 0)}
-                />
-                <i
-                    className="fa fa-fw fa-angle-double-down"
-                    onClick={() => moveTask(index, -1)}
-                />
+class TaskItem extends PureComponent {
+    render() {
+        return (
+            <div
+                className={`task-item${this.props.index === 0 ? " current" : ""}`}
+                onMouseOver={() => this.taskButtons.style.opacity = 1}
+                onMouseOut={() => this.taskButtons.style.opacity = 0}
+            >
+                <div className="task-item-time-remaining">{durationToString(secsToDuration(this.props.secsRemaining))}</div>
+                <div className="task-item-name">{this.props.name}</div>
+                <div
+                    ref={(ref) => this.taskButtons = ref}
+                    className="task-item-buttons"
+                >
+                    <i
+                        className="done-button fa fa-fw fa-check"
+                        onClick={() => this.props.finishTask(this.props.index, true, this.props.name)}
+                    />
+                    <i
+                        className="cancel-button fa fa-fw fa-close"
+                        onClick={() => this.props.finishTask(this.props.index, false)}
+                    />
+                    <i
+                        className="edit-button fa fa-fw fa-pencil"
+                        onClick={() => this.props.toggleEditTaskModal(true, this.props.index)}
+                    />
+                    <i
+                        className="fa fa-fw fa-copy"
+                        onClick={() => this.props.createTask({ name: this.props.name, secsRemaining: this.props.secsRemaining })}
+                    />
+                    <i
+                        className="fa fa-fw fa-angle-up"
+                        onClick={() => this.props.moveTask(this.props.index, this.props.index-1)}
+                    />
+                    <i
+                        className="fa fa-fw fa-angle-down"
+                        onClick={() => this.props.moveTask(this.props.index, this.props.index+1)}
+                    />
+                    <i
+                        className="fa fa-fw fa-angle-double-up"
+                        onClick={() => this.props.moveTask(this.props.index, 0)}
+                    />
+                    <i
+                        className="fa fa-fw fa-angle-double-down"
+                        onClick={() => this.props.moveTask(this.props.index, -1)}
+                    />
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+}
 
 TaskItem.propTypes = {
     index: PropTypes.number.isRequired,

@@ -3,6 +3,8 @@
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
+    position: relative;
+    z-index: 0;
 
     &.current {
         color: blue;
@@ -16,5 +18,10 @@
 }
 
 .task-item-buttons {
-    margin-left: auto;
+    position: absolute;
+    z-index: 1;
+    right: 1rem;
+    background-color: white;
+    opacity: 0;
+    transition: opacity .2s;
 }
