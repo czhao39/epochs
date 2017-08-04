@@ -22,7 +22,7 @@ const DEFAULT_TASKS = {
  * @param {object} action
  * @return {array}
  */
-export default function tasks(state, action) {
+export default function tasks(state=DEFAULT_TASKS, action) {
     let newState;
     switch (action.type) {
         case SET_TIME_REMAINING:
@@ -60,6 +60,6 @@ export default function tasks(state, action) {
             newState.list[action.index] = action.newTask;
             return newState;
         default:
-            return DEFAULT_TASKS;
+            return state;
     }
 };
