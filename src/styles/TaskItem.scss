@@ -4,6 +4,12 @@
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
+
+    &.current {
+        color: blue;
+        border-color: blue;
+        border-width: 3px;
+    }
 }
 
 .task-item-time-remaining {

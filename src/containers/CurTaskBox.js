@@ -21,6 +21,9 @@ export default class CurTaskBox extends Component {
                     secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
                     togglePaused={this.props.togglePaused}
                 />
+                <div className="cur-task">
+                    {this.props.tasks.list[0].name}
+                </div>
                 <div className="cur-task-controls">
                     <i
                         className="done-button fa fa-fw fa-check"

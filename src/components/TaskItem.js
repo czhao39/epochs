@@ -7,7 +7,7 @@ import { secsToDuration, durationToString } from "../helpers";
 
 const TaskItem = ({ index, name, secsRemaining, setTimeRemaining, moveTask, finishTask, toggleEditTaskModal }) => {
     return (
-        <div className="task-item">
+        <div className={`task-item${index === 0 ? " current" : ""}`}>
             <div className="task-item-time-remaining">{durationToString(secsToDuration(secsRemaining))}</div>
             <div className="task-item-name">{name}</div>
             <div className="task-item-buttons">
