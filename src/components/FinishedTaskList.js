@@ -26,7 +26,7 @@ const FinishedTaskList = ({ finishedTasks, removeFinishedTask }) => {
 }
 
 FinishedTaskList.propTypes = {
-    finishedTasks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     removeFinishedTask: PropTypes.func.isRequired,
 };
 

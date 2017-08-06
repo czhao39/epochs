@@ -9,8 +9,11 @@
     width: 5em;
     height: 5em;
     cursor: pointer;
-    border: 2px solid $primary-color;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 100%;
+    @extend .task-border;
+    transition: border-color .2s;
 
     &.paused {
         color: grey;

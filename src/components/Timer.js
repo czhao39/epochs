@@ -5,10 +5,10 @@ import "../styles/Timer.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 
-const Timer = ({ paused, secsRemaining, togglePaused }) => {
+const Timer = ({ paused, secsRemaining, color, togglePaused }) => {
     return (
         <div
-            className={`timer${paused ? " paused" : ""}`}
+            className={`${color} timer${paused ? " paused" : ""}`}
             onClick={() => togglePaused()}
         >
             {durationToString(secsToDuration(secsRemaining))}
@@ -20,6 +20,7 @@ const Timer = ({ paused, secsRemaining, togglePaused }) => {
 Timer.propTypes = {
     paused: PropTypes.bool.isRequired,
     secsRemaining: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
     togglePaused: PropTypes.func.isRequired,
 };
 

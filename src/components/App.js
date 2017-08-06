@@ -12,7 +12,11 @@ import FinishedTaskListContainer from "../containers/FinishedTaskListContainer";
 const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => {
     return (
         <div>
-            <Navbar fluid staticTop>
+            <Navbar
+                fluid
+                staticTop
+                className={tasksArray.length > 0 ? tasksArray[0].color : "black"}
+            >
                 <Navbar.Header>
                     <Navbar.Brand>
                         Epochs
@@ -66,7 +70,7 @@ const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEd
 
 App.propTypes = {
     tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
-    finishedTasks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     editIndex: PropTypes.number,
     showEditTaskModal: PropTypes.bool.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,

@@ -25,7 +25,7 @@ const TotalInfoBox = ({ tasksArray, finishedTasks }) => {
 
 TotalInfoBox.propTypes = {
     tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
-    finishedTasks: PropTypes.arrayOf(PropTypes.string).isRequired,
+    finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TotalInfoBox;

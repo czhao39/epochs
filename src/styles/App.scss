@@ -48,8 +48,9 @@ hr {
 .navbar {
     display: flex;
     justify-content: center;
-    background-color: $primary-color;
     color: white;
+    @extend .task-bg;
+    transition: background-color .2s;
 
     .navbar-brand {
         float: none;
