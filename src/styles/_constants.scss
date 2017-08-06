@@ -1,8 +1,8 @@
 $task-color-black: black;
-$task-color-red: red;
-$task-color-green: green;
-$task-color-blue: blue;
-$task-color-orange: orange;
+$task-color-red: #F44336;
+$task-color-green: #43A047;
+$task-color-blue: #2196F3;
+$task-color-purple: #9C27B0;
 
 .task-bg {
     &.black {
@@ -18,11 +18,11 @@ $task-color-orange: orange;
     }
 
     &.blue {
-        background-color: $task-color-orange;
+        background-color: $task-color-blue;
     }
 
-    &.orange {
-        background-color: $task-color-orange;
+    &.purple {
+        background-color: $task-color-purple;
     }
 }
 
@@ -40,10 +40,10 @@ $task-color-orange: orange;
     }
 
     &.blue {
-        border-color: $task-color-orange;
+        border-color: $task-color-blue;
     }
 
-    &.orange {
-        border-color: $task-color-orange;
+    &.purple {
+        border-color: $task-color-purple;
     }
 }

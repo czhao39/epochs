@@ -25,7 +25,7 @@ hr {
     transition: color .2s;
 
     &:hover {
-        color: blue;
+        color: #2979FF;
     }
 
     &.fa-angle-up, &.fa-angle-down, &.fa-angle-double-up, &.fa-angle-double-down {
@@ -34,15 +34,15 @@ hr {
 }
 
 .done-button:hover {
-    color: green !important;
+    color: #00C853 !important;
 }
 
 .cancel-button:hover {
-    color: red !important;
+    color: #FF1744 !important;
 }
 
 .edit-button:hover {
-    color: orange !important;
+    color: #FF9100 !important;
 }
 
 .navbar {

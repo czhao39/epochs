@@ -6,7 +6,7 @@ import "../styles/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
 
 
-const COLORS = ["black", "red", "green", "blue", "orange"];
+const COLORS = ["black", "red", "green", "blue", "purple"];
 
 class TaskEditor extends PureComponent {
     constructor(props) {

@@ -21,27 +21,8 @@
         margin: 0;
         border-radius: 5px;
         cursor: pointer;
+        @extend .task-bg;
         transition: border-radius .2s;
-    }
-
-    .black {
-        background-color: $task-color-black;
-    }
-
-    .red {
-        background-color: $task-color-red;
-    }
-
-    .green {
-        background-color: $task-color-green;
-    }
-
-    .blue {
-        background-color: $task-color-blue;
-    }
-
-    .orange {
-        background-color: $task-color-orange;
     }
 
     .selected {
