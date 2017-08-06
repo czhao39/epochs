@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import "../styles/TaskList.scss";
 import FinishedTaskItem from "./FinishedTaskItem";
@@ -8,19 +9,26 @@ import FinishedTaskItem from "./FinishedTaskItem";
 const FinishedTaskList = ({ finishedTasks, removeFinishedTask }) => {
     return (
         <div className="task-list">
-            {
-                finishedTasks.map((task, index) => {
-                    return (
-                        <FinishedTaskItem
+            <TransitionGroup>
+                {
+                    finishedTasks.map((task, index) => (
+                        <CSSTransition
                             key={index}
-                            index={index}
-                            name={task.name}
-                            color={task.color}
-                            removeFinishedTask={removeFinishedTask}
-                        />
-                    );
-                })
-            }
+                            classNames="task-item"
+                            timeout={300}
+                        >
+                            <div>
+                                <FinishedTaskItem
+                                    index={index}
+                                    name={task.name}
+                                    color={task.color}
+                                    removeFinishedTask={removeFinishedTask}
+                                />
+                            </div>
+                        </CSSTransition>
+                    ))
+                }
+            </TransitionGroup>
         </div>
     );
 }

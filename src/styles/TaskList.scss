@@ -1,3 +1,12 @@
 .task-item {
     margin-bottom: .5rem;
 }
+
+.task-item-enter {
+    opacity: 0.01;
+}
+
+.task-item-enter.task-item-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+}
