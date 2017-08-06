@@ -4,3 +4,47 @@ $task-color-red: red;
 $task-color-green: green;
 $task-color-blue: blue;
 $task-color-orange: orange;
+
+.task-bg {
+    &.black {
+        background-color: $task-color-black;
+    }
+
+    &.red {
+        background-color: $task-color-red;
+    }
+
+    &.green {
+        background-color: $task-color-green;
+    }
+
+    &.blue {
+        background-color: $task-color-orange;
+    }
+
+    &.orange {
+        background-color: $task-color-orange;
+    }
+}
+
+.task-border {
+    &.black {
+        border-color: $task-color-black;
+    }
+
+    &.red {
+        border-color: $task-color-red;
+    }
+
+    &.green {
+        border-color: $task-color-green;
+    }
+
+    &.blue {
+        border-color: $task-color-orange;
+    }
+
+    &.orange {
+        border-color: $task-color-orange;
+    }
+}

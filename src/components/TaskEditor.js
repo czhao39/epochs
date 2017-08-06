@@ -37,7 +37,7 @@ class TaskEditor extends PureComponent {
     }
 
     isInputValid() {
-        return this.state.hours.length > 0 && this.state.mins.length > 0 && this.state.taskName.length > 0 && isFinite(this.state.hours) && Number(this.state.hours) >= 0 && isFinite(this.state.mins) && Number(this.state.mins) >= 0;
+        return this.state.hours.length > 0 && this.state.mins.length > 0 && this.state.taskName.length > 0 && this.state.color.length > 0 && isFinite(this.state.hours) && Number(this.state.hours) >= 0 && isFinite(this.state.mins) && Number(this.state.mins) >= 0;
     }
 
     processKey(event) {

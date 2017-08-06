@@ -2,60 +2,21 @@
 
 .task-item {
     padding: 10px;
-    border: 2px solid black;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 10px;
+    @extend .task-border;
     display: flex;
     position: relative;
     z-index: 0;
 
     &.current {
-        background-color: $primary-color;
-        border-color: $primary-color;
         color: white;
+        @extend .task-bg;
 
         .task-item-buttons {
             background-color: rgba(255, 255, 255, .9);
         }
-
-        &.black {
-            background-color: $task-color-black;
-        }
-
-        &.red {
-            background-color: $task-color-red;
-        }
-
-        &.green {
-            background-color: $task-color-green;
-        }
-
-        &.blue {
-            background-color: $task-color-blue;
-        }
-
-        &.orange {
-            background-color: $task-color-orange;
-        }
-    }
-
-    &.black {
-        border-color: $task-color-black;
-    }
-
-    &.red {
-        border-color: $task-color-red;
-    }
-
-    &.green {
-        border-color: $task-color-green;
-    }
-
-    &.blue {
-        border-color: $task-color-blue;
-    }
-
-    &.orange {
-        border-color: $task-color-orange;
     }
 }
 
