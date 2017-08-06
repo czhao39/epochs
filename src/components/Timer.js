@@ -12,7 +12,7 @@ const Timer = ({ paused, secsRemaining, togglePaused }) => {
             onClick={() => togglePaused()}
         >
             {durationToString(secsToDuration(secsRemaining))}
-            <div className={`pause-overlay${paused ? " paused" : ""}`}><div><i className="fa fa-fw fa-pause" /></div></div>
+            <div className={`pause-overlay${paused ? " paused" : ""}`}><i className="fa fa-fw fa-pause" /></div>
         </div>
     );
 };

@@ -1,10 +1,12 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Grid, Row, Col, FormControl, Button } from "react-bootstrap";
+import { Grid, Row, Col, FormControl, Radio, Button } from "react-bootstrap";
 
 import "../styles/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
 
+
+const COLORS = ["black", "red", "green", "blue", "orange"];
 
 class TaskEditor extends PureComponent {
     constructor(props) {
@@ -15,6 +17,7 @@ class TaskEditor extends PureComponent {
                 hours: "",
                 mins: "",
                 taskName: "",
+                color: "",
             };
         } else {
             let duration = secsToDuration(this.props.task.secsRemaining);
@@ -22,13 +25,14 @@ class TaskEditor extends PureComponent {
                 hours: duration.hours.toString(),
                 mins: duration.mins.toString(),
                 taskName: this.props.task.name,
+                color: this.props.task.color,
             };
         }
     }
 
     submit() {
         let duration = { hours: Number(this.state.hours), mins: Number(this.state.mins), secs: 0 }
-        let task = { secsRemaining: durationToSecs(duration), name: this.state.taskName };
+        let task = { secsRemaining: durationToSecs(duration), name: this.state.taskName, color: this.state.color };
         this.props.submitTask(task);
     }
 
@@ -85,6 +89,20 @@ class TaskEditor extends PureComponent {
                         />
                     </Col>
                 </Row>
+                <div className="color-picker">
+                    {
+                        COLORS.map((color, index) => {
+                            return (
+                                <Radio
+                                    name="color-picker-radio-btn"
+                                    key={index}
+                                    className={`${color}${color === this.state.color ? " selected" : ""}`}
+                                    onClick={() => this.setState({ color })}
+                                />
+                            )
+                        })
+                    }
+                </div>
                 <div className="submit-button-div">
                     <Button
                         className="submit-button"

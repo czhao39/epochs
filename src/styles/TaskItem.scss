@@ -14,12 +14,48 @@
         color: white;
 
         .task-item-buttons {
-            background-color: $primary-color;
-
-            .fa:hover {
-                color: #8AF;
-            }
+            background-color: rgba(255, 255, 255, .9);
         }
+
+        &.black {
+            background-color: $task-color-black;
+        }
+
+        &.red {
+            background-color: $task-color-red;
+        }
+
+        &.green {
+            background-color: $task-color-green;
+        }
+
+        &.blue {
+            background-color: $task-color-blue;
+        }
+
+        &.orange {
+            background-color: $task-color-orange;
+        }
+    }
+
+    &.black {
+        border-color: $task-color-black;
+    }
+
+    &.red {
+        border-color: $task-color-red;
+    }
+
+    &.green {
+        border-color: $task-color-green;
+    }
+
+    &.blue {
+        border-color: $task-color-blue;
+    }
+
+    &.orange {
+        border-color: $task-color-orange;
     }
 }
 

@@ -9,7 +9,7 @@ class TaskItem extends PureComponent {
     render() {
         return (
             <div
-                className={`task-item${this.props.index === 0 ? " current" : ""}`}
+                className={`task-item ${this.props.color}${this.props.index === 0 ? " current" : ""}`}
                 onMouseOver={() => this.taskButtons.style.opacity = 1}
                 onMouseOut={() => this.taskButtons.style.opacity = 0}
             >
@@ -61,6 +61,7 @@ TaskItem.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     secsRemaining: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,

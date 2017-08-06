@@ -1,4 +1,50 @@
+@import "constants";
+
 .submit-button-div {
     text-align: center;
     margin-top: 4rem;
+}
+
+.color-picker {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 3rem auto auto auto;
+
+    input {
+        opacity: 0;
+    }
+
+    .radio {
+        width: 2em;
+        height: 2em;
+        margin: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: border-radius .2s;
+    }
+
+    .black {
+        background-color: $task-color-black;
+    }
+
+    .red {
+        background-color: $task-color-red;
+    }
+
+    .green {
+        background-color: $task-color-green;
+    }
+
+    .blue {
+        background-color: $task-color-blue;
+    }
+
+    .orange {
+        background-color: $task-color-orange;
+    }
+
+    .selected {
+        border-radius: 100%;
+    }
 }

@@ -16,6 +16,7 @@ const TaskList = ({ tasksArray, setTimeRemaining, moveTask, finishTask, createTa
                             index={index}
                             name={task.name}
                             secsRemaining={task.secsRemaining}
+                            color={task.color}
                             setTimeRemaining={setTimeRemaining}
                             moveTask={moveTask}
                             finishTask={finishTask}
