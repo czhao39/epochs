@@ -8,11 +8,12 @@ export const FINISH_TASK = "FINISH_TASK";
  * @param {string} taskName
  * @return {object}
  */
-export function finishTask(index, done, taskName) {
+export function finishTask(index, done, taskName, color) {
     return {
         type: FINISH_TASK,
         index,
         done,
         taskName,
+        color,
     };
 }

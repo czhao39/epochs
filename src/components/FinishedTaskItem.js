@@ -8,7 +8,7 @@ class FinishedTaskItem extends PureComponent {
     render() {
         return (
             <div
-                className="task-item"
+                className={`task-item ${this.props.color}`}
                 onMouseOver={() => this.taskButtons.style.opacity = 1}
                 onMouseOut={() => this.taskButtons.style.opacity = 0}
             >
@@ -30,6 +30,7 @@ class FinishedTaskItem extends PureComponent {
 FinishedTaskItem.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
     removeFinishedTask: PropTypes.func.isRequired,
 };
 

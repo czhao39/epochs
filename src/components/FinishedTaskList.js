@@ -14,7 +14,8 @@ const FinishedTaskList = ({ finishedTasks, removeFinishedTask }) => {
                         <FinishedTaskItem
                             key={index}
                             index={index}
-                            name={task}
+                            name={task.name}
+                            color={task.color}
                             removeFinishedTask={removeFinishedTask}
                         />
                     );

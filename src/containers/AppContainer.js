@@ -23,7 +23,7 @@ class AppContainer extends PureComponent {
             }
             this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - 1);
             if (this.props.tasks.list[0].secsRemaining <= 0) {
-                this.props.finishTask(0, true, this.props.tasks.list[0].name);
+                this.props.finishTask(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
             }
         }, 1000);
     }
