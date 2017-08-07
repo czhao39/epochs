@@ -15,7 +15,7 @@ const FinishedTaskList = ({ finishedTasks, removeFinishedTask }) => {
                         <CSSTransition
                             key={index}
                             classNames="task-item"
-                            timeout={300}
+                            timeout={{ enter: 300, exit: 0 }}
                         >
                             <div>
                                 <FinishedTaskItem
