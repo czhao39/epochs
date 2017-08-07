@@ -33,7 +33,7 @@ class TaskItem extends PureComponent {
                     />
                     <i
                         className="fa fa-fw fa-copy"
-                        onClick={() => this.props.createTask({ name: this.props.name, secsRemaining: this.props.secsRemaining })}
+                        onClick={() => this.props.createTask({ name: this.props.name, secsRemaining: this.props.secsRemaining, color: this.props.color })}
                     />
                     <i
                         className="fa fa-fw fa-angle-up"
