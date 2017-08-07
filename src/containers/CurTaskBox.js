@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import "../styles/CurTaskBox.scss";
 import Timer from "../components/Timer";
 import { togglePaused } from "../actions/togglePaused";
+import { moveTask } from "../actions/moveTask";
 import { finishTask } from "../actions/finishTask";
 
 
@@ -11,7 +12,7 @@ import { finishTask } from "../actions/finishTask";
     return {
         tasks: state.tasks,
     };
-}, { togglePaused, finishTask })
+}, { togglePaused, moveTask, finishTask })
 export default class CurTaskBox extends PureComponent {
     render() {
         return (
@@ -42,6 +43,10 @@ export default class CurTaskBox extends PureComponent {
                                 <i
                                     className="edit-button fa fa-fw fa-pencil"
                                     onClick={() => this.props.toggleEditTaskModal(true, 0)}
+                                />
+                                <i
+                                    className="fa fa-fw fa-angle-down"
+                                    onClick={() => this.props.moveTask(0, 1)}
                                 />
                             </div>
                         </div>
