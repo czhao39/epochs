@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Grid, Row, Col, FormControl, Radio, Button } from "react-bootstrap";
+import { Grid, Row, Col, FormControl, Button } from "react-bootstrap";
 
 import "../styles/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
@@ -93,8 +93,7 @@ class TaskEditor extends PureComponent {
                     {
                         COLORS.map((color, index) => {
                             return (
-                                <Radio
-                                    name="color-picker-radio-btn"
+                                <div
                                     key={index}
                                     className={`${color}${color === this.state.color ? " selected" : ""}`}
                                     onClick={() => this.setState({ color })}
