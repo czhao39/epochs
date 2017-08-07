@@ -26,6 +26,7 @@ export default class TaskListControlsBox extends PureComponent {
                 />
                 <div className="task-list-controls">
                     <i
+                        title="New"
                         className="create-task-button fa fa-fw fa-plus-circle"
                         onClick={() => this.setState({ showCreateTaskModal: true })}
                     />

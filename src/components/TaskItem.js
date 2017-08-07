@@ -20,34 +20,42 @@ class TaskItem extends PureComponent {
                     className="task-item-buttons"
                 >
                     <i
+                        title="Finish"
                         className="done-button fa fa-fw fa-check"
                         onClick={() => this.props.finishTask(this.props.index, true, this.props.name, this.props.color)}
                     />
                     <i
+                        title="Delete"
                         className="cancel-button fa fa-fw fa-close"
                         onClick={() => this.props.finishTask(this.props.index, false)}
                     />
                     <i
+                        title="Edit"
                         className="edit-button fa fa-fw fa-pencil"
                         onClick={() => this.props.toggleEditTaskModal(true, this.props.index)}
                     />
                     <i
+                        title="Duplicate"
                         className="fa fa-fw fa-copy"
                         onClick={() => this.props.createTask({ name: this.props.name, secsRemaining: this.props.secsRemaining, color: this.props.color })}
                     />
                     <i
+                        title="Move up"
                         className="fa fa-fw fa-angle-up"
                         onClick={() => this.props.moveTask(this.props.index, this.props.index-1)}
                     />
                     <i
+                        title="Postpone"
                         className="fa fa-fw fa-angle-down"
                         onClick={() => this.props.moveTask(this.props.index, this.props.index+1)}
                     />
                     <i
+                        title="Move to top"
                         className="fa fa-fw fa-angle-double-up"
                         onClick={() => this.props.moveTask(this.props.index, 0)}
                     />
                     <i
+                        title="Postpone to end"
                         className="fa fa-fw fa-angle-double-down"
                         onClick={() => this.props.moveTask(this.props.index, -1)}
                     />

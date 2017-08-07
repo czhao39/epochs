@@ -33,18 +33,22 @@ export default class CurTaskBox extends PureComponent {
                             </div>
                             <div className="cur-task-controls">
                                 <i
+                                    title="Finish"
                                     className="done-button fa fa-fw fa-check"
                                     onClick={() => this.props.finishTask(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color)}
                                 />
                                 <i
+                                    title="Delete"
                                     className="cancel-button fa fa-fw fa-close"
                                     onClick={() => this.props.finishTask(0, false)}
                                 />
                                 <i
+                                    title="Edit"
                                     className="edit-button fa fa-fw fa-pencil"
                                     onClick={() => this.props.toggleEditTaskModal(true, 0)}
                                 />
                                 <i
+                                    title="Postpone"
                                     className="fa fa-fw fa-angle-down"
                                     onClick={() => this.props.moveTask(0, 1)}
                                 />

@@ -18,6 +18,7 @@ class FinishedTaskItem extends PureComponent {
                     className="task-item-buttons"
                 >
                     <i
+                        title="Delete"
                         className="cancel-button fa fa-fw fa-close"
                         onClick={() => this.props.removeFinishedTask(this.props.index)}
                     />
