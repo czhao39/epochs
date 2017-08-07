@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { secsToDuration, durationToString } from "../helpers";
@@ -14,7 +15,7 @@ const TotalInfoBox = ({ tasksArray, finishedTasks }) => {
             {
                 finishedTasks.length > 0 ?
                     <div className="finished-tasks-count">
-                        You've finished <strong>{finishedTasks.length}</strong> epochs!
+                        <Link to="/finished">You've finished <strong>{finishedTasks.length}</strong> epochs!</Link>
                     </div>
                 :
                     <div></div>
