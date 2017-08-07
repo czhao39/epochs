@@ -1,22 +1,19 @@
 @import "constants";
 
 .task-item {
-    padding: 10px;
-    border-width: 3px;
-    border-style: solid;
+    padding: 1em;
     border-radius: 10px;
-    @extend .task-border;
     display: flex;
     position: relative;
     z-index: 0;
+    color: white;
+    @extend .task-bg;
+
+    .task-item-buttons {
+        background-color: rgba(255, 255, 255, .9);
+    }
 
     &.current {
-        color: white;
-        @extend .task-bg;
-
-        .task-item-buttons {
-            background-color: rgba(255, 255, 255, .9);
-        }
     }
 }
 

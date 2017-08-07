@@ -20,7 +20,7 @@ export default class CurTaskBox extends PureComponent {
                     <Timer
                         paused={this.props.tasks.paused}
                         secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
-                        color={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "black"}
+                        color={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "grey"}
                         togglePaused={this.props.togglePaused}
                     />
                 </div>

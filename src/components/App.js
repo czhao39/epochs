@@ -15,7 +15,7 @@ const App = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEd
             <Navbar
                 fluid
                 staticTop
-                className={tasksArray.length > 0 ? tasksArray[0].color : "black"}
+                className={tasksArray.length > 0 ? tasksArray[0].color : "grey"}
             >
                 <Navbar.Header>
                     <Navbar.Brand>

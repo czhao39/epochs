@@ -11,7 +11,7 @@ const DEFAULT_TASKS = {
     paused: true,
     list: [
         { name: "I'm an epoch!", secsRemaining: 10, color: "blue" },
-        { name: "I'm another epoch!", secsRemaining: 30, color: "black" },
+        { name: "I'm another epoch!", secsRemaining: 30, color: "grey" },
     ],
 }
 

@@ -6,7 +6,7 @@ import "../styles/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
 
 
-const COLORS = ["black", "red", "green", "blue", "purple"];
+const COLORS = ["grey", "red", "green", "blue", "purple"];
 
 class TaskEditor extends PureComponent {
     constructor(props) {
@@ -104,7 +104,7 @@ class TaskEditor extends PureComponent {
                 </div>
                 <div className="submit-button-div">
                     <Button
-                        className="submit-button"
+                        className={`submit-button ${this.state.color}`}
                         onClick={() => this.submit()}
                         disabled={!this.isInputValid()}
                     >

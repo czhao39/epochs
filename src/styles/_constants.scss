@@ -1,12 +1,12 @@
-$task-color-black: black;
+$task-color-grey: #607D8B;
 $task-color-red: #F44336;
 $task-color-green: #43A047;
 $task-color-blue: #2196F3;
 $task-color-purple: #9C27B0;
 
 .task-bg {
-    &.black {
-        background-color: $task-color-black;
+    &.grey {
+        background-color: $task-color-grey;
     }
 
     &.red {
@@ -27,8 +27,8 @@ $task-color-purple: #9C27B0;
 }
 
 .task-border {
-    &.black {
-        border-color: $task-color-black;
+    &.grey {
+        border-color: $task-color-grey;
     }
 
     &.red {
