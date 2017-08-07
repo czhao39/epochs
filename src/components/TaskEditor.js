@@ -104,7 +104,7 @@ class TaskEditor extends PureComponent {
                 </div>
                 <div className="submit-button-div">
                     <Button
-                        className={`submit-button ${this.state.color}`}
+                        className="submit-button"
                         onClick={() => this.submit()}
                         disabled={!this.isInputValid()}
                     >

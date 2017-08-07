@@ -1,19 +1,5 @@
 @import "constants";
 
-.submit-button:not(:disabled) {
-    color: white;
-    @extend .task-bg;
-
-    &:hover {
-        color: white;
-    }
-
-    &:active {
-        color: white;
-        @extend .task-bg;
-    }
-}
-
 .submit-button-div {
     text-align: center;
     margin-top: 4rem;
