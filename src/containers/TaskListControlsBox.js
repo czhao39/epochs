@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import "../styles/TaskListControlsBox.scss"
+import "../assets/css/TaskListControlsBox.scss"
 import CreateTaskModal from "../components/CreateTaskModal";
 import { createTask } from "../actions/createTask";
 

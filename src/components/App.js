@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Navbar } from "react-bootstrap";
 
-import "../styles/App.scss";
+import "../assets/css/App.scss";
 import MainContainer from "../containers/MainContainer";
 import FinishedTasksPageContainer from "../containers/FinishedTasksPageContainer";;
 

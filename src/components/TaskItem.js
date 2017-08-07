@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import "../styles/TaskItem.scss";
+import "../assets/css/TaskItem.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 

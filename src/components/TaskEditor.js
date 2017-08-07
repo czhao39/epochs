@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { Grid, Row, Col, FormControl, Button } from "react-bootstrap";
 
-import "../styles/TaskEditor.scss";
+import "../assets/css/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
 
 

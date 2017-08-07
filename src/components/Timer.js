@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "../styles/Timer.scss";
+import "../assets/css/Timer.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 
