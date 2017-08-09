@@ -7,6 +7,18 @@ import { secsToDuration, durationToString } from "../helpers";
 
 
 class Timer extends PureComponent {
+    state = {
+        changingColor: false,
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.color !== this.props.color) {
+            this.setState({ changingColor: true });
+        } else if (this.state.changingColor) {
+            this.setState({ changingColor: false });
+        }
+    }
+
     render() {
         return (
             <div
@@ -15,7 +27,7 @@ class Timer extends PureComponent {
             >
                 <Motion
                     defaultStyle={{ theta: 0 }}
-                    style={{ theta: spring(302, { stiffness: 10, damping: 6 }) }}
+                    style={{ theta: (this.state.changingColor ? 0 : spring(302, { stiffness: 10, damping: 6 })) }}
                 >
                     {(interpolatingStyle) => (
                         <svg
