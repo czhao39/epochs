@@ -6,30 +6,38 @@
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
-    width: 5em;
-    height: 5em;
+    width: 8em;
+    height: 8em;
     cursor: pointer;
-    border-width: 5px;
-    border-style: solid;
-    border-radius: 100%;
-    @extend .task-border;
-    transition: border-color .2s;
 
-    &.paused {
-        color: grey;
+    .timer-circle {
+        circle {
+            @extend .task-stroke;
+            transition: stroke .2s;
+        }
+
+        text {
+            font-size: .7em;
+        }
+
+        &.paused text {
+            fill: grey;
+        }
     }
 
     .pause-overlay {
         position: absolute;
-        top: 5%;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
+        top: 10%;
+        bottom: 10%;
+        left: 10%;
+        right: 10%;
         border-radius: 100%;
         z-index: 1;
         display: flex;
         justify-content: center;
         align-items: center;
+        color: white;
+        font-size: 1.5em;
         background-color: black;
         opacity: 0;
         transition: top .2s, bottom .2s, left .2s, right .2s, opacity .2s;

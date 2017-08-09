@@ -47,3 +47,25 @@ $task-color-purple: #9C27B0;
         border-color: $task-color-purple;
     }
 }
+
+.task-stroke {
+    &.grey {
+        stroke: $task-color-grey;
+    }
+
+    &.red {
+        stroke: $task-color-red;
+    }
+
+    &.green {
+        stroke: $task-color-green;
+    }
+
+    &.blue {
+        stroke: $task-color-blue;
+    }
+
+    &.purple {
+        stroke: $task-color-purple;
+    }
+}
