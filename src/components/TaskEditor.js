@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { Grid, Row, Col, FormControl, Button } from "react-bootstrap";
+import { Grid, Row, Col, FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
 import "../assets/css/TaskEditor.scss";
 import { secsToDuration, durationToSecs } from "../helpers";
@@ -58,39 +58,46 @@ class TaskEditor extends PureComponent {
             >
                 <Row>
                     <Col xs={12} sm={3}>
-                        <FormControl
-                            inputRef={(ref) => this.hoursInput = ref}
-                            type="number"
-                            autoComplete="off"
-                            value={this.state.hours}
-                            onChange={(event) => this.setState({ hours: event.target.value })}
-                            placeholder="Hours"
-                            autoFocus
-                        />
+                        <FormGroup controlId="hoursGroup">
+                            <ControlLabel>Hours</ControlLabel>
+                            <FormControl
+                                inputRef={(ref) => this.hoursInput = ref}
+                                type="number"
+                                autoComplete="off"
+                                value={this.state.hours}
+                                onChange={(event) => this.setState({ hours: event.target.value })}
+                                autoFocus
+                            />
+                        </FormGroup>
                     </Col>
                     <Col xs={12} sm={3}>
-                        <FormControl
-                            inputRef={(ref) => this.minsInput = ref}
-                            type="number"
-                            autoComplete="off"
-                            value={this.state.mins}
-                            onChange={(event) => this.setState({ mins: event.target.value })}
-                            placeholder="Mins"
-                        />
+                        <FormGroup controlId="minsGroup">
+                            <ControlLabel>Mins</ControlLabel>
+                            <FormControl
+                                inputRef={(ref) => this.minsInput = ref}
+                                type="number"
+                                autoComplete="off"
+                                value={this.state.mins}
+                                onChange={(event) => this.setState({ mins: event.target.value })}
+                            />
+                        </FormGroup>
                     </Col>
                     <Col xs={12} sm={6}>
-                        <FormControl
-                            inputRef={(ref) => this.taskNameInput = ref}
-                            type="text"
-                            autoComplete="off"
-                            value={this.state.taskName}
-                            onChange={(event) => this.setState({ taskName: event.target.value })}
-                            placeholder="Task"
-                        />
+                        <FormGroup controlId="nameGroup">
+                            <ControlLabel>Description</ControlLabel>
+                            <FormControl
+                                inputRef={(ref) => this.taskNameInput = ref}
+                                type="text"
+                                autoComplete="off"
+                                value={this.state.taskName}
+                                onChange={(event) => this.setState({ taskName: event.target.value })}
+                            />
+                        </FormGroup>
                     </Col>
                 </Row>
                 <Row>
                     <Col xs={12} sm={6} smOffset={3}>
+                        <ControlLabel className="color-picker-label">Color</ControlLabel>
                         <div className="color-picker">
                             {
                                 COLORS.map((color, index) => {
