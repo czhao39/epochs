@@ -89,19 +89,23 @@ class TaskEditor extends PureComponent {
                         />
                     </Col>
                 </Row>
-                <div className="color-picker">
-                    {
-                        COLORS.map((color, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className={`${color}${color === this.state.color ? " selected" : ""}`}
-                                    onClick={() => this.setState({ color })}
-                                />
-                            )
-                        })
-                    }
-                </div>
+                <Row>
+                    <Col xs={12} sm={6} smOffset={3}>
+                        <div className="color-picker">
+                            {
+                                COLORS.map((color, index) => {
+                                    return (
+                                        <div
+                                            key={index}
+                                            className={`${color}${color === this.state.color ? " selected" : ""}`}
+                                            onClick={() => this.setState({ color })}
+                                        />
+                                    )
+                                })
+                            }
+                        </div>
+                    </Col>
+                </Row>
                 <div className="submit-button-div">
                     <Button
                         className="submit-button"
