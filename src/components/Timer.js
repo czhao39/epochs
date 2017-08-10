@@ -14,7 +14,11 @@ class Timer extends PureComponent {
     componentWillReceiveProps(nextProps) {
         if (nextProps.color !== this.props.color) {
             this.setState({ changingColor: true });
-        } else if (this.state.changingColor) {
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.state.changingColor) {
             this.setState({ changingColor: false });
         }
     }
