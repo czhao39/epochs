@@ -38,16 +38,33 @@ class AppContainer extends PureComponent {
         this.props.finishTask(index, done, taskName, color);
     }
 
-    componentDidMount() {
+    /**
+     * Run the timer, which updates every 250 ms
+     *
+     * @return {void}
+     */
+    runTimer() {
+        this.lastTime = Date.now();
         setInterval(() => {
-            if (this.props.tasks.paused || this.props.tasks.list.length === 0) {
-                return;
+            let secsSinceLast = Math.floor((Date.now() - this.lastTime) / 1000);
+            if (!this.props.tasks.paused && secsSinceLast >= 1 && this.props.tasks.list.length > 0) {
+                this.lastTime = Date.now();
+                this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - secsSinceLast);
+                if (this.props.tasks.list[0].secsRemaining <= 0) {
+                    this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
+                }
             }
-            this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - 1);
-            if (this.props.tasks.list[0].secsRemaining <= 0) {
-                this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
-            }
-        }, 1000);
+        }, 250);
+    }
+
+    componentDidMount() {
+        this.runTimer();
+    }
+
+    componentWillUpdate(nextProps) {
+        if (this.props.tasks.paused && !nextProps.tasks.paused) {
+            this.lastTime = Date.now();
+        }
     }
 
     render() {
