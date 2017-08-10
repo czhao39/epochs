@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Grid, Row, Col } from "react-bootstrap";
 
@@ -12,6 +13,7 @@ const FinishedTasksPage = ({ tasksArray, finishedTasks }) => (
                     tasksArray={tasksArray}
                     finishedTasks={finishedTasks}
                 />
+                <div className="return-to-timer"><Link to="/"><i className="fa fa-fw fa-long-arrow-left" />Return to the timer!</Link></div>
             </div>
             <div className="finished-title">Finished Epochs</div>
             <Row>

@@ -74,6 +74,11 @@ hr {
     width: 80%;
     margin: 2rem auto;
     font-size: 1.2em;
+
+    .fa {
+        color: inherit;
+        transition: inherit;
+    }
 }
 
 .cur-task-box-wrapper {

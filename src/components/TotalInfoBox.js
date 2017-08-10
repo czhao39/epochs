@@ -10,12 +10,12 @@ const TotalInfoBox = ({ tasksArray, finishedTasks }) => {
     return (
         <div className="total-info-box">
             <div className="total-time-remaining">
-                Total time remaining:&ensp;<strong>{durationToString(secsToDuration(totalSecsRemaining))}</strong>
+                <i className="fa fa-fw fa-clock-o" />Total time remaining:&ensp;<strong>{durationToString(secsToDuration(totalSecsRemaining))}</strong>
             </div>
             {
                 finishedTasks.length > 0 ?
                     <div className="finished-tasks-count">
-                        <Link to="/finished">You've finished <strong>{finishedTasks.length}</strong> epoch{finishedTasks.length > 1 ? "s" : ""}!</Link>
+                        <Link to="/finished"><i className="fa fa-fw fa-check" />You've finished <strong>{finishedTasks.length}</strong> epoch{finishedTasks.length > 1 ? "s" : ""}!</Link>
                     </div>
                 :
                     <div></div>
