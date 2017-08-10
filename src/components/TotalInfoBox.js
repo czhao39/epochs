@@ -15,7 +15,7 @@ const TotalInfoBox = ({ tasksArray, finishedTasks }) => {
             {
                 finishedTasks.length > 0 ?
                     <div className="finished-tasks-count">
-                        <Link to="/finished">You've finished <strong>{finishedTasks.length}</strong> epochs!</Link>
+                        <Link to="/finished">You've finished <strong>{finishedTasks.length}</strong> epoch{finishedTasks.length > 1 ? "s" : ""}!</Link>
                     </div>
                 :
                     <div></div>
