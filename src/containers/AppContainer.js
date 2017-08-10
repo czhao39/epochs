@@ -49,9 +49,17 @@ class AppContainer extends PureComponent {
             let secsSinceLast = Math.floor((Date.now() - this.lastTime) / 1000);
             if (!this.props.tasks.paused && secsSinceLast >= 1 && this.props.tasks.list.length > 0) {
                 this.lastTime = Date.now();
-                this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - secsSinceLast);
-                if (this.props.tasks.list[0].secsRemaining <= 0) {
-                    this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
+                while (secsSinceLast > 0) {
+                    if (secsSinceLast > this.props.tasks.list[0].secsRemaining) {  // finish tasks that may not have been finished due to setInterval not runnning
+                        this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
+                        secsSinceLast -= this.props.tasks.list[0].secsRemaining;
+                    } else {  // decrease time remaining for current task
+                        this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - secsSinceLast);
+                        secsSinceLast = 0;
+                        if (this.props.tasks.list[0].secsRemaining <= 0) {
+                            this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
+                        }
+                    }
                 }
             }
         }, 250);
