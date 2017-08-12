@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
+import { Grid, Row, Col } from "react-bootstrap";
 
 import "../assets/css/CurTaskBox.scss";
 import finishedMp3 from "../assets/finished.mp3";
@@ -50,46 +51,52 @@ export default class CurTaskBox extends PureComponent {
                     <source src={finishedMp3} type="audio/mpeg" />
                     <source src={finishedOgg} type="audio/ogg" />
                 </audio>
-                <div className="timer-wrapper">
-                    <Timer
-                        paused={this.props.tasks.paused}
-                        secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
-                        color={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "grey"}
-                        togglePaused={this.props.togglePaused}
-                    />
-                </div>
-                {
-                    this.props.tasks.list.length > 0 ?
-                        <div>
-                            <div className="cur-task">
-                                {this.props.tasks.list[0].name}
+                <Grid fluid>
+                    <div className="timer-wrapper">
+                        <Timer
+                            paused={this.props.tasks.paused}
+                            secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
+                            color={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "grey"}
+                            togglePaused={this.props.togglePaused}
+                        />
+                    </div>
+                    {
+                        this.props.tasks.list.length > 0 ?
+                            <div>
+                                <Row>
+                                    <Col sm={10} md={8} smOffset={1} mdOffset={2}>
+                                        <div className="cur-task">
+                                            {this.props.tasks.list[0].name}
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <div className="cur-task-controls">
+                                    <i
+                                        title="Finish"
+                                        className="done-button fa fa-fw fa-check"
+                                        onClick={() => this.finishTaskProxy(0, true, this.props.tasks.list[0])}
+                                    />
+                                    <i
+                                        title="Delete"
+                                        className="cancel-button fa fa-fw fa-close"
+                                        onClick={() => this.finishTaskProxy(0, false)}
+                                    />
+                                    <i
+                                        title="Edit"
+                                        className="edit-button fa fa-fw fa-pencil"
+                                        onClick={() => this.props.toggleEditTaskModal(true, 0)}
+                                    />
+                                    <i
+                                        title="Postpone"
+                                        className="fa fa-fw fa-angle-down"
+                                        onClick={() => this.props.moveTask(0, 1)}
+                                    />
+                                </div>
                             </div>
-                            <div className="cur-task-controls">
-                                <i
-                                    title="Finish"
-                                    className="done-button fa fa-fw fa-check"
-                                    onClick={() => this.finishTaskProxy(0, true, this.props.tasks.list[0])}
-                                />
-                                <i
-                                    title="Delete"
-                                    className="cancel-button fa fa-fw fa-close"
-                                    onClick={() => this.finishTaskProxy(0, false)}
-                                />
-                                <i
-                                    title="Edit"
-                                    className="edit-button fa fa-fw fa-pencil"
-                                    onClick={() => this.props.toggleEditTaskModal(true, 0)}
-                                />
-                                <i
-                                    title="Postpone"
-                                    className="fa fa-fw fa-angle-down"
-                                    onClick={() => this.props.moveTask(0, 1)}
-                                />
-                            </div>
-                        </div>
-                    :
-                        <div>You're done!</div>
-                }
+                        :
+                            <div>You're done!</div>
+                    }
+                </Grid>
             </div>
         );
     }
