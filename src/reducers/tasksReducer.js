@@ -52,7 +52,11 @@ export default function tasks(state=DEFAULT_TASKS, action) {
             return newState;
         case CREATE_TASK:
             newState = { ...state };
-            newState.list = [...newState.list, action.task];
+            if (action.index === undefined || action.index  > newState.list.length) {
+                newState.list = [...newState.list, action.task];
+            } else {
+                newState.list = [...newState.list.slice(0, action.index), action.task, ...newState.list.slice(action.index)];
+            }
             return newState;
         case EDIT_TASK:
             newState = { ...state };

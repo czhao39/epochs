@@ -3,7 +3,7 @@ export const TOGGLE_PAUSED = "TOGGLE_PAUSED";
 /**
  * Toggle timer play/pause state
  *
- * @param {boolean} paused If not given, paused state is toggled
+ * @param {boolean} paused (optional)
  * @return {object}
  */
 export function togglePaused(paused) {
