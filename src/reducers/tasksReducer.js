@@ -10,8 +10,8 @@ import { durationToSecs } from "../helpers";
 const DEFAULT_TASKS = {
     paused: true,
     list: [
-        { key: "EX1", name: "I'm an epoch!", secsRemaining: 10, color: "grey" },
-        { key: "EX2", name: "I'm another epoch!", secsRemaining: 30, color: "green" },
+        { key: "EX1", name: "I'm an epoch!", secsRemaining: 60, color: "grey" },
+        { key: "EX2", name: "I'm another epoch!", secsRemaining: 70, color: "green" },
     ],
 }
 

@@ -14,13 +14,17 @@
     .task-item-buttons {
         background-color: rgba(255, 255, 255, .9);
     }
-
-    &.current {
-    }
 }
 
 .task-item-time-remaining {
     width: 5em;
+}
+
+.task-item-name {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .task-item-buttons {
