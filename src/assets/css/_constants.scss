@@ -28,8 +28,36 @@ $task-color-purple: #9C27B0;
     }
 }
 
+@mixin fadedColorify($property, $percent) {
+    #{$property}: white;
+
+    &.grey {
+        #{$property}: white;
+    }
+
+    &.red {
+        #{$property}: lighten($task-color-red, $percent);
+    }
+
+    &.green {
+        #{$property}: lighten($task-color-green, $percent);
+    }
+
+    &.blue {
+        #{$property}: lighten($task-color-blue, $percent);
+    }
+
+    &.purple {
+        #{$property}: lighten($task-color-purple, $percent);
+    }
+}
+
 .task-bg {
     @include colorify(background-color);
+}
+
+.task-bg-faded {
+    @include fadedColorify(background-color, 45%);
 }
 
 .task-border {

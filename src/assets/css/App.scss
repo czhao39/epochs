@@ -4,6 +4,11 @@ html, body {
     font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
+body {
+    @extend .task-bg-faded;
+    transition: background-color .4s;
+}
+
 #root {
     margin-bottom: 2rem;
 }
@@ -49,8 +54,9 @@ hr {
     display: flex;
     justify-content: center;
     color: white;
+    border: none;
     @extend .task-bg;
-    transition: background-color .2s;
+    transition: background-color .4s;
 
     .navbar-brand {
         float: none;

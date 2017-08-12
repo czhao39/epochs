@@ -85,6 +85,7 @@ class AppContainer extends PureComponent {
 
     componentDidMount() {
         this.runTimer();
+        document.body.className = this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "";
         window.addEventListener("keydown", this.handleKeyPress);
     }
 
@@ -92,6 +93,10 @@ class AppContainer extends PureComponent {
         if (this.props.tasks.paused && !nextProps.tasks.paused) {
             this.lastTime = Date.now();
         }
+    }
+
+    componentDidUpdate() {
+        document.body.className = this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "";
     }
 
     render() {
