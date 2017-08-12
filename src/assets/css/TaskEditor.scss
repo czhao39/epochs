@@ -4,6 +4,10 @@ input {
     margin-bottom: 1em;
 }
 
+.container-fluid:focus {
+    outline: none;
+}
+
 .color-picker-label {
     display: block;
     text-align: center;

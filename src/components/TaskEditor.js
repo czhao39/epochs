@@ -54,6 +54,7 @@ class TaskEditor extends PureComponent {
         return (
             <Grid
                 fluid
+                tabIndex="-1"
                 onKeyDown={(event) => this.processKey(event)}
             >
                 <Row>
