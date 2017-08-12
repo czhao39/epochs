@@ -4,74 +4,38 @@ $task-color-green: #43A047;
 $task-color-blue: #2196F3;
 $task-color-purple: #9C27B0;
 
-.task-bg {
-    background-color: $task-color-grey;
+@mixin colorify($property) {
+    #{$property}: $task-color-grey;
 
     &.grey {
-        background-color: $task-color-grey;
+        #{$property}: $task-color-grey;
     }
 
     &.red {
-        background-color: $task-color-red;
+        #{$property}: $task-color-red;
     }
 
     &.green {
-        background-color: $task-color-green;
+        #{$property}: $task-color-green;
     }
 
     &.blue {
-        background-color: $task-color-blue;
+        #{$property}: $task-color-blue;
     }
 
     &.purple {
-        background-color: $task-color-purple;
+        #{$property}: $task-color-purple;
     }
+}
+
+.task-bg {
+    @include colorify(background-color);
 }
 
 .task-border {
-    border-color: $task-color-grey;
-
-    &.grey {
-        border-color: $task-color-grey;
-    }
-
-    &.red {
-        border-color: $task-color-red;
-    }
-
-    &.green {
-        border-color: $task-color-green;
-    }
-
-    &.blue {
-        border-color: $task-color-blue;
-    }
-
-    &.purple {
-        border-color: $task-color-purple;
-    }
+    @include colorify(border-color);
 }
 
 .task-stroke {
-    stroke: $task-color-grey;
-
-    &.grey {
-        stroke: $task-color-grey;
-    }
-
-    &.red {
-        stroke: $task-color-red;
-    }
-
-    &.green {
-        stroke: $task-color-green;
-    }
-
-    &.blue {
-        stroke: $task-color-blue;
-    }
-
-    &.purple {
-        stroke: $task-color-purple;
-    }
+    @include colorify(stroke);
 }
