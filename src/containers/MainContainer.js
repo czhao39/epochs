@@ -2,8 +2,6 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import Main from "../components/Main";
-import { setTimeRemaining } from "../actions/setTimeRemaining";
-import { finishTask } from "../actions/finishTask";
 
 
 @connect(function(state) {
@@ -11,7 +9,7 @@ import { finishTask } from "../actions/finishTask";
         tasks: state.tasks,
         finishedTasks: state.finishedTasks,
     };
-}, { setTimeRemaining, finishTask })
+})
 class MainContainer extends PureComponent {
     state = {
         showEditTaskModal: false,

@@ -31,15 +31,14 @@ export default class TaskListContainer extends PureComponent {
      *
      * @param {number} index
      * @param {boolean} done
-     * @param {string} taskName
-     * @param {string} color
+     * @param {object} task
      * @return {void}
      */
-    finishTaskProxy(index, done, taskName, color) {
+    finishTaskProxy(index, done, task) {
         if (done) {
             this.playSound();
         }
-        this.props.finishTask(index, done, taskName, color);
+        this.props.finishTask(index, done, task);
     }
 
     render() {
@@ -63,7 +62,7 @@ export default class TaskListContainer extends PureComponent {
                     tasksArray={this.props.tasks.list}
                     setTimeRemaining={this.props.setTimeRemaining}
                     moveTask={this.props.moveTask}
-                    finishTask={(index, done, name, color) => this.finishTaskProxy(index, done, name, color)}
+                    finishTask={(index, done, task) => this.finishTaskProxy(index, done, task)}
                     createTask={this.props.createTask}
                     toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                 />

@@ -30,15 +30,14 @@ export default class CurTaskBox extends PureComponent {
      *
      * @param {number} index
      * @param {boolean} done
-     * @param {string} taskName
-     * @param {string} color
+     * @param {object} task
      * @return {void}
      */
-    finishTaskProxy(index, done, taskName, color) {
+    finishTaskProxy(index, done, task) {
         if (done) {
             this.playSound();
         }
-        this.props.finishTask(index, done, taskName, color);
+        this.props.finishTask(index, done, task);
     }
 
     render() {
@@ -69,7 +68,7 @@ export default class CurTaskBox extends PureComponent {
                                 <i
                                     title="Finish"
                                     className="done-button fa fa-fw fa-check"
-                                    onClick={() => this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color)}
+                                    onClick={() => this.finishTaskProxy(0, true, this.props.tasks.list[0])}
                                 />
                                 <i
                                     title="Delete"

@@ -5,15 +5,14 @@ export const FINISH_TASK = "FINISH_TASK";
  *
  * @param {number} index Index of the task
  * @param {boolean} done True if completed, false if canceled
- * @param {string} taskName
+ * @param {object} task
  * @return {object}
  */
-export function finishTask(index, done, taskName, color) {
+export function finishTask(index, done, task) {
     return {
         type: FINISH_TASK,
         index,
         done,
-        taskName,
-        color,
+        task,
     };
 }

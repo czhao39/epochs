@@ -27,15 +27,14 @@ class AppContainer extends PureComponent {
      *
      * @param {number} index
      * @param {boolean} done
-     * @param {string} taskName
-     * @param {string} color
+     * @param {object} task
      * @return {void}
      */
-    finishTaskProxy(index, done, taskName, color) {
+    finishTaskProxy(index, done, task) {
         if (done) {
             this.playSound();
         }
-        this.props.finishTask(index, done, taskName, color);
+        this.props.finishTask(index, done, task);
     }
 
     /**
@@ -51,13 +50,13 @@ class AppContainer extends PureComponent {
                 this.lastTime = Date.now();
                 while (secsSinceLast > 0) {
                     if (secsSinceLast > this.props.tasks.list[0].secsRemaining) {  // finish tasks that may not have been finished due to setInterval not runnning
-                        this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
+                        this.finishTaskProxy(0, true, this.props.tasks.list[0]);
                         secsSinceLast -= this.props.tasks.list[0].secsRemaining;
                     } else {  // decrease time remaining for current task
                         this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - secsSinceLast);
                         secsSinceLast = 0;
                         if (this.props.tasks.list[0].secsRemaining <= 0) {
-                            this.finishTaskProxy(0, true, this.props.tasks.list[0].name, this.props.tasks.list[0].color);
+                            this.finishTaskProxy(0, true, this.props.tasks.list[0]);
                         }
                     }
                 }

@@ -14,7 +14,7 @@ export default function finishedTasks(state=[], action) {
     switch (action.type) {
         case FINISH_TASK:
             if (action.done) {
-                newState = [...state, { name: action.taskName, color: action.color }]
+                newState = [...state, action.task]
                 return newState;
             }
             return state;
