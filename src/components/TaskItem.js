@@ -37,7 +37,7 @@ class TaskItem extends PureComponent {
                     <i
                         title="Duplicate"
                         className="fa fa-fw fa-copy"
-                        onClick={() => this.props.createTask({ name: this.props.name, secsRemaining: this.props.secsRemaining, color: this.props.color })}
+                        onClick={() => this.props.createTask({ key: `T${Date.now()}`, name: this.props.name, secsRemaining: this.props.secsRemaining, color: this.props.color })}
                     />
                     <i
                         title="Move up"

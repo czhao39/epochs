@@ -1,41 +1,88 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { TransitionMotion, spring, presets } from "react-motion";
 
 import "../assets/css/TaskList.scss";
 import TaskItem from "./TaskItem";
 
 
-const TaskList = ({ tasksArray, setTimeRemaining, moveTask, finishTask, createTask, toggleEditTaskModal }) => {
-    return (
-        <div className="task-list">
-            <TransitionGroup>
-                {
-                    tasksArray.map((task, index) => (
-                        <CSSTransition
-                            key={index}
-                            classNames="task-item"
-                            timeout={{ enter: 300, exit: 0 }}
-                        >
-                            <div>
-                                <TaskItem
-                                    index={index}
-                                    name={task.name}
-                                    secsRemaining={task.secsRemaining}
-                                    color={task.color}
-                                    setTimeRemaining={setTimeRemaining}
-                                    moveTask={moveTask}
-                                    finishTask={finishTask}
-                                    createTask={createTask}
-                                    toggleEditTaskModal={toggleEditTaskModal}
-                                />
-                            </div>
-                        </CSSTransition>
-                    ))
-                }
-            </TransitionGroup>
-        </div>
-    );
+class TaskList extends PureComponent {
+    getDefaultStyles() {
+        return this.props.tasksArray.map((task) => (
+            {
+                key: task.key,
+                data: task,
+                style: {
+                    height: 0,
+                    opacity: 1
+                },
+            }
+        ));
+    }
+
+    getStyles() {
+        return this.props.tasksArray.map((task) => (
+            {
+                key: task.key,
+                data: task,
+                style: {
+                    height: spring(4, presets.gentle),
+                    opacity: spring(1, presets.gentle),
+                },
+            }
+        ));
+    }
+
+    willEnter() {
+        return {
+            height: 0,
+            opacity: 0,
+        };
+    }
+
+    willLeave() {
+        return {
+            height: spring(0),
+            opacity: spring(0),
+        };
+    }
+
+    render() {
+        return (
+            <div className="task-list">
+                <TransitionMotion
+                    defaultStyles={this.getDefaultStyles()}
+                    styles={this.getStyles()}
+                    willLeave={this.willLeave}
+                    willEnter={this.willEnter}
+                >
+                    {(styles) =>
+                        <div>
+                            {styles.map((task, index) => (
+                                <div
+                                    key={task.key}
+                                    className="task-item-wrapper"
+                                    style={{ opacity: task.style.opacity, height: `${task.style.height}em` }}
+                                >
+                                    <TaskItem
+                                        index={index}
+                                        name={task.data.name}
+                                        secsRemaining={task.data.secsRemaining}
+                                        color={task.data.color}
+                                        setTimeRemaining={this.props.setTimeRemaining}
+                                        moveTask={this.props.moveTask}
+                                        finishTask={this.props.finishTask}
+                                        createTask={this.props.createTask}
+                                        toggleEditTaskModal={this.props.toggleEditTaskModal}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    }
+                </TransitionMotion>
+            </div>
+        );
+    }
 }
 
 TaskList.propTypes = {

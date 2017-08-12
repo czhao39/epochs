@@ -10,8 +10,8 @@ import { durationToSecs } from "../helpers";
 const DEFAULT_TASKS = {
     paused: true,
     list: [
-        { name: "I'm an epoch!", secsRemaining: 10, color: "grey" },
-        { name: "I'm another epoch!", secsRemaining: 30, color: "green" },
+        { key: "EX1", name: "I'm an epoch!", secsRemaining: 10, color: "grey" },
+        { key: "EX2", name: "I'm another epoch!", secsRemaining: 30, color: "green" },
     ],
 }
 
@@ -57,7 +57,7 @@ export default function tasks(state=DEFAULT_TASKS, action) {
         case EDIT_TASK:
             newState = { ...state };
             newState.list = [...newState.list];
-            newState.list[action.index] = action.newTask;
+            newState.list[action.index] = { key: state.list[action.index].key, ...action.newTask };
             return newState;
         default:
             return state;

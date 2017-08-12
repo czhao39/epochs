@@ -1,9 +1,11 @@
 @import "constants";
 
 .task-item {
-    padding: 1em;
+    padding: 0 1em;
+    height: 3.5em;
     border-radius: 10px;
     display: flex;
+    align-items: center;
     position: relative;
     z-index: 0;
     color: white;

@@ -1,35 +1,84 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { TransitionMotion, spring, presets } from "react-motion";
 
 import "../assets/css/TaskList.scss";
 import FinishedTaskItem from "./FinishedTaskItem";
 
 
-const FinishedTaskList = ({ finishedTasks, removeFinishedTask }) => (
-    <div className="task-list">
-        <TransitionGroup>
+class FinishedTaskList extends PureComponent {
+    getDefaultStyles() {
+        return this.props.finishedTasks.map((task) => (
             {
-                finishedTasks.map((task, index) => (
-                    <CSSTransition
-                        key={index}
-                        classNames="task-item"
-                        timeout={{ enter: 300, exit: 0 }}
-                    >
-                        <div>
-                            <FinishedTaskItem
-                                index={index}
-                                name={task.name}
-                                color={task.color}
-                                removeFinishedTask={removeFinishedTask}
-                            />
-                        </div>
-                    </CSSTransition>
-                ))
+                key: task.key,
+                data: task,
+                style: {
+                    height: 0,
+                    opacity: 1
+                },
             }
-        </TransitionGroup>
-    </div>
-);
+        ));
+    }
+
+    getStyles() {
+        return this.props.finishedTasks.map((task) => (
+            {
+                key: task.key,
+                data: task,
+                style: {
+                    height: spring(4, presets.gentle),
+                    opacity: spring(1, presets.gentle),
+                },
+            }
+        ));
+    }
+
+    willEnter() {
+        return {
+            height: 0,
+            opacity: 1,
+        };
+    }
+
+    willLeave() {
+        return {
+            height: spring(0),
+            opacity: spring(0),
+        };
+    }
+
+    render() {
+        return (
+            <div className="task-list">
+                <TransitionMotion
+                    defaultStyles={this.getDefaultStyles()}
+                    styles={this.getStyles()}
+                    willLeave={this.willLeave}
+                    willEnter={this.willEnter}
+                >
+                    {(styles) =>
+                        <div>
+                            {styles.map((task, index) => (
+                                <div
+                                    key={task.key}
+                                    className="task-item-wrapper"
+                                    style={{ opacity: task.style.opacity, height: `${task.style.height}em` }}
+                                >
+                                    <FinishedTaskItem
+                                        index={index}
+                                        name={task.data.name}
+                                        color={task.data.color}
+                                        removeFinishedTask={this.props.removeFinishedTask}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    }
+                </TransitionMotion>
+            </div>
+        );
+    }
+}
 
 FinishedTaskList.propTypes = {
     finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,

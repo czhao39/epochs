@@ -13,7 +13,7 @@ class CreateTaskModal extends PureComponent {
      * @return {void}
      */
     submitTask(task) {
-        this.props.createTask(task);
+        this.props.createTask({ ...task, key: `T${Date.now()}` });
         this.props.hideCreateTaskModal();
     }
     submitTask = this.submitTask.bind(this);
