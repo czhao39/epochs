@@ -1,30 +1,22 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import EditTaskModal from "../components/EditTaskModal";
 import TaskList from "../components/TaskList";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
 import { moveTask } from "../actions/moveTask";
 import { removeTask } from "../actions/removeTask";
 import { createTask } from "../actions/createTask";
-import { editTask } from "../actions/editTask";
 
-@connect(function(state) {
+@connect(function(state, ownProps) {
     return {
         tasks: state.tasks,
+        toggleEditTaskModal: ownProps.toggleEditTaskModal,
     };
-}, { setTimeRemaining, moveTask, removeTask, createTask, editTask })
+}, { setTimeRemaining, moveTask, removeTask, createTask })
 export default class TaskListContainer extends PureComponent {
     render() {
         return (
             <div>
-                <EditTaskModal
-                    index={this.props.editIndex}
-                    task={this.props.editIndex === undefined ? null : this.props.tasks[this.props.editIndex]}
-                    showEditTaskModal={this.props.showEditTaskModal}
-                    toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
-                    editTask={this.props.editTask}
-                />
                 <TaskList
                     tasks={this.props.tasks}
                     setTimeRemaining={this.props.setTimeRemaining}
