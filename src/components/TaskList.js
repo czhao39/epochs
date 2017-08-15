@@ -71,7 +71,7 @@ class TaskList extends PureComponent {
                                         color={task.data.color}
                                         setTimeRemaining={this.props.setTimeRemaining}
                                         moveTask={this.props.moveTask}
-                                        finishTask={this.props.finishTask}
+                                        removeTask={this.props.removeTask}
                                         createTask={this.props.createTask}
                                         toggleEditTaskModal={this.props.toggleEditTaskModal}
                                     />
@@ -89,7 +89,7 @@ TaskList.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
-    finishTask: PropTypes.func.isRequired,
+    removeTask: PropTypes.func.isRequired,
     createTask: PropTypes.func.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,
 };

@@ -1,6 +1,6 @@
 import { SET_TIME_REMAINING } from "../actions/setTimeRemaining";
 import { MOVE_TASK } from "../actions/moveTask";
-import { FINISH_TASK } from "../actions/finishTask";
+import { REMOVE_TASK } from "../actions/removeTask";
 import { CREATE_TASK } from "../actions/createTask";
 import { EDIT_TASK } from "../actions/editTask";
 import { durationToSecs } from "../helpers";
@@ -32,7 +32,7 @@ export default function tasks(state=DEFAULT_TASKS, action) {
             }
             newState.splice(action.newIndex, 0, newState.splice(action.index, 1)[0]);
             return newState;
-        case FINISH_TASK:
+        case REMOVE_TASK:
             newState = state.filter((task, index) => index !== action.index);
             return newState;
         case CREATE_TASK:

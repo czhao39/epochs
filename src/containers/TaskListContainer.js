@@ -5,7 +5,7 @@ import EditTaskModal from "../components/EditTaskModal";
 import TaskList from "../components/TaskList";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
 import { moveTask } from "../actions/moveTask";
-import { finishTask } from "../actions/finishTask";
+import { removeTask } from "../actions/removeTask";
 import { createTask } from "../actions/createTask";
 import { editTask } from "../actions/editTask";
 
@@ -13,7 +13,7 @@ import { editTask } from "../actions/editTask";
     return {
         tasks: state.tasks,
     };
-}, { setTimeRemaining, moveTask, finishTask, createTask, editTask })
+}, { setTimeRemaining, moveTask, removeTask, createTask, editTask })
 export default class TaskListContainer extends PureComponent {
     render() {
         return (
@@ -29,7 +29,7 @@ export default class TaskListContainer extends PureComponent {
                     tasks={this.props.tasks}
                     setTimeRemaining={this.props.setTimeRemaining}
                     moveTask={this.props.moveTask}
-                    finishTask={this.props.finishTask}
+                    removeTask={this.props.removeTask}
                     createTask={this.props.createTask}
                     toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                 />

@@ -5,7 +5,7 @@ import { Navbar } from "react-bootstrap";
 
 import "../assets/css/App.scss";
 import MainContainer from "../containers/MainContainer";
-import FinishedTasksPageContainer from "../containers/FinishedTasksPageContainer";;
+import CompletedTasksPageContainer from "../containers/CompletedTasksPageContainer";;
 
 
 const App = ({ tasks }) => {
@@ -25,7 +25,7 @@ const App = ({ tasks }) => {
                 </Navbar>
                 <Switch>
                     <Route exact path="/" component={MainContainer} />
-                    <Route path="/finished" component={FinishedTasksPageContainer} />
+                    <Route path="/completed" component={CompletedTasksPageContainer} />
                 </Switch>
             </div>
         </BrowserRouter>

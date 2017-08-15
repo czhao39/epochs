@@ -20,14 +20,14 @@ class TaskItem extends PureComponent {
                     className="task-item-buttons"
                 >
                     <i
-                        title="Finish"
-                        className="done-button fa fa-fw fa-check"
-                        onClick={() => this.props.finishTask(this.props.index, true, { key: `T${Date.now()}`, name: this.props.name, color: this.props.color })}
+                        title="Complete"
+                        className="complete-button fa fa-fw fa-check"
+                        onClick={() => this.props.removeTask(this.props.index, true, { key: `T${Date.now()}`, name: this.props.name, color: this.props.color })}
                     />
                     <i
                         title="Delete"
                         className="cancel-button fa fa-fw fa-close"
-                        onClick={() => this.props.finishTask(this.props.index, false)}
+                        onClick={() => this.props.removeTask(this.props.index, false)}
                     />
                     <i
                         title="Edit"
@@ -72,7 +72,7 @@ TaskItem.propTypes = {
     color: PropTypes.string.isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
-    finishTask: PropTypes.func.isRequired,
+    removeTask: PropTypes.func.isRequired,
     createTask: PropTypes.func.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,
 };

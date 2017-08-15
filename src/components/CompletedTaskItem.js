@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "../assets/css/TaskItem.scss";
 
 
-class FinishedTaskItem extends PureComponent {
+class CompletedTaskItem extends PureComponent {
     render() {
         return (
             <div
@@ -20,7 +20,7 @@ class FinishedTaskItem extends PureComponent {
                     <i
                         title="Delete"
                         className="cancel-button fa fa-fw fa-close"
-                        onClick={() => this.props.removeFinishedTask(this.props.index)}
+                        onClick={() => this.props.removeCompletedTask(this.props.index)}
                     />
                 </div>
             </div>
@@ -28,11 +28,11 @@ class FinishedTaskItem extends PureComponent {
     }
 }
 
-FinishedTaskItem.propTypes = {
+CompletedTaskItem.propTypes = {
     index: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-    removeFinishedTask: PropTypes.func.isRequired,
+    removeCompletedTask: PropTypes.func.isRequired,
 };
 
-export default FinishedTaskItem;
+export default CompletedTaskItem;

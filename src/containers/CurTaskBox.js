@@ -6,7 +6,7 @@ import "../assets/css/CurTaskBox.scss";
 import Timer from "../components/Timer";
 import { togglePaused } from "../actions/togglePaused";
 import { moveTask } from "../actions/moveTask";
-import { finishTask } from "../actions/finishTask";
+import { removeTask } from "../actions/removeTask";
 
 
 @connect(function(state) {
@@ -14,7 +14,7 @@ import { finishTask } from "../actions/finishTask";
         tasks: state.tasks,
         paused: state.states.paused,
     };
-}, { togglePaused, moveTask, finishTask })
+}, { togglePaused, moveTask, removeTask })
 export default class CurTaskBox extends PureComponent {
     render() {
         return (
@@ -40,14 +40,14 @@ export default class CurTaskBox extends PureComponent {
                                 </Row>
                                 <div className="cur-task-controls">
                                     <i
-                                        title="Finish"
-                                        className="done-button fa fa-fw fa-check"
-                                        onClick={() => this.props.finishTask(0, true, this.props.tasks[0])}
+                                        title="Complete"
+                                        className="complete-button fa fa-fw fa-check"
+                                        onClick={() => this.props.removeTask(0, true, this.props.tasks[0])}
                                     />
                                     <i
                                         title="Delete"
                                         className="cancel-button fa fa-fw fa-close"
-                                        onClick={() => this.props.finishTask(0, false)}
+                                        onClick={() => this.props.removeTask(0, false)}
                                     />
                                     <i
                                         title="Edit"

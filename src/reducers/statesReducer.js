@@ -1,10 +1,10 @@
 import { TOGGLE_PAUSED } from "../actions/togglePaused";
-import { FINISH_TASK } from "../actions/finishTask";
+import { REMOVE_TASK } from "../actions/removeTask";
 
 
 const DEFAULT_STATES = {
     paused: true,
-    finishingTask: false,
+    removingCompletedTask: false,
 };
 
 /**
@@ -15,7 +15,7 @@ const DEFAULT_STATES = {
  * @return {array}
  */
 export default function states(state=DEFAULT_STATES, action) {
-    let newState = { ...state, finishingTask: false };
+    let newState = { ...state, removingCompletedTask: false };
     switch (action.type) {
         case TOGGLE_PAUSED:
             if (action.paused === undefined) {
@@ -24,9 +24,9 @@ export default function states(state=DEFAULT_STATES, action) {
                 newState.paused = action.paused;
             }
             return newState;
-        case FINISH_TASK:
-            if (action.done) {
-                newState.finishingTask = true;
+        case REMOVE_TASK:
+            if (action.completed) {
+                newState.removingCompletedTask = true;
             }
             return newState;
         default:

@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { TransitionMotion, spring, presets } from "react-motion";
 
 import "../assets/css/TaskList.scss";
-import FinishedTaskItem from "./FinishedTaskItem";
+import CompletedTaskItem from "./CompletedTaskItem";
 
 
-class FinishedTaskList extends PureComponent {
+class CompletedTaskList extends PureComponent {
     getDefaultStyles() {
-        return this.props.finishedTasks.map((task) => (
+        return this.props.completedTasks.map((task) => (
             {
                 key: task.key,
                 data: task,
@@ -21,7 +21,7 @@ class FinishedTaskList extends PureComponent {
     }
 
     getStyles() {
-        return this.props.finishedTasks.map((task) => (
+        return this.props.completedTasks.map((task) => (
             {
                 key: task.key,
                 data: task,
@@ -64,11 +64,11 @@ class FinishedTaskList extends PureComponent {
                                     className="task-item-wrapper"
                                     style={{ opacity: task.style.opacity, height: `${task.style.height}em` }}
                                 >
-                                    <FinishedTaskItem
+                                    <CompletedTaskItem
                                         index={index}
                                         name={task.data.name}
                                         color={task.data.color}
-                                        removeFinishedTask={this.props.removeFinishedTask}
+                                        removeCompletedTask={this.props.removeCompletedTask}
                                     />
                                 </div>
                             ))}
@@ -80,9 +80,9 @@ class FinishedTaskList extends PureComponent {
     }
 }
 
-FinishedTaskList.propTypes = {
-    finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    removeFinishedTask: PropTypes.func.isRequired,
+CompletedTaskList.propTypes = {
+    completedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    removeCompletedTask: PropTypes.func.isRequired,
 };
 
-export default FinishedTaskList;
+export default CompletedTaskList;

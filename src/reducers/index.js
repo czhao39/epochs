@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
 
 import tasks from "./tasksReducer";
-import finishedTasks from "./finishedTasksReducer";
+import completedTasks from "./completedTasksReducer";
 import states from "./statesReducer";
 
 
 const rootReducer = combineReducers({
     tasks,
-    finishedTasks,
+    completedTasks,
     states,
 });
 

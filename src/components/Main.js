@@ -7,12 +7,12 @@ import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControlsBox from "../containers/TaskListControlsBox";
 import TaskListContainer from "../containers/TaskListContainer";
 
-const Main = ({ tasks, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => (
+const Main = ({ tasks, completedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => (
     <Grid fluid>
         <div className="total-info-box-wrapper">
             <TotalInfoBox
                 tasks={tasks}
-                finishedTasks={finishedTasks}
+                completedTasks={completedTasks}
             />
         </div>
         <div className="cur-task-box-wrapper">
@@ -39,7 +39,7 @@ const Main = ({ tasks, finishedTasks, editIndex, showEditTaskModal, toggleEditTa
 
 Main.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    completedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     editIndex: PropTypes.number,
     showEditTaskModal: PropTypes.bool.isRequired,
     toggleEditTaskModal: PropTypes.func.isRequired,

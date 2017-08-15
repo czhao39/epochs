@@ -1,11 +1,11 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
-import finishedMp3 from "../assets/audio/finished.mp3";
-import finishedOgg from "../assets/audio/finished.ogg";
+import completedMp3 from "../assets/audio/completed.mp3";
+import completedOgg from "../assets/audio/completed.ogg";
 import App from "../components/App";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
-import { finishTask } from "../actions/finishTask";
+import { removeTask } from "../actions/removeTask";
 import { togglePaused } from "../actions/togglePaused";
 
 @connect(function(state) {
@@ -13,7 +13,7 @@ import { togglePaused } from "../actions/togglePaused";
         tasks: state.tasks,
         states: state.states,
     };
-}, { setTimeRemaining, finishTask, togglePaused })
+}, { setTimeRemaining, removeTask, togglePaused })
 class AppContainer extends PureComponent {
     /**
      * Play task completed sound effect
@@ -36,14 +36,14 @@ class AppContainer extends PureComponent {
             if (!this.props.states.paused && secsSinceLast >= 1 && this.props.tasks.length > 0) {
                 this.lastTime = Date.now();
                 while (secsSinceLast > 0) {
-                    if (secsSinceLast > this.props.tasks[0].secsRemaining) {  // finish tasks that may not have been finished due to setInterval not runnning
-                        this.props.finishTask(0, true, this.props.tasks[0]);
+                    if (secsSinceLast > this.props.tasks[0].secsRemaining) {  // complete tasks that may not have been completed due to setInterval not runnning
+                        this.props.removeTask(0, true, this.props.tasks[0]);
                         secsSinceLast -= this.props.tasks[0].secsRemaining;
                     } else {  // decrease time remaining for current task
                         this.props.setTimeRemaining(0, this.props.tasks[0].secsRemaining - secsSinceLast);
                         secsSinceLast = 0;
                         if (this.props.tasks[0].secsRemaining <= 0) {
-                            this.props.finishTask(0, true, this.props.tasks[0]);
+                            this.props.removeTask(0, true, this.props.tasks[0]);
                         }
                     }
                 }
@@ -83,7 +83,7 @@ class AppContainer extends PureComponent {
 
     componentDidUpdate() {
         document.body.className = this.props.tasks.length > 0 ? this.props.tasks[0].color : "";
-        if (this.props.states.finishingTask) {
+        if (this.props.states.removingCompletedTask) {
             this.playSound();
         }
     }
@@ -95,8 +95,8 @@ class AppContainer extends PureComponent {
                     ref={(ref) => this.audio = ref}
                     preload="auto"
                 >
-                    <source src={finishedMp3} type="audio/mpeg" />
-                    <source src={finishedOgg} type="audio/ogg" />
+                    <source src={completedMp3} type="audio/mpeg" />
+                    <source src={completedOgg} type="audio/ogg" />
                 </audio>
                 <App
                     tasks={this.props.tasks}

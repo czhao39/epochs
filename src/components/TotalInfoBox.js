@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { secsToDuration, durationToString } from "../helpers";
 
 
-const TotalInfoBox = ({ tasks, finishedTasks }) => {
+const TotalInfoBox = ({ tasks, completedTasks }) => {
     let totalSecsRemaining = tasks.reduce((partialSum, task) => partialSum + task.secsRemaining, 0);
     return (
         <div className="total-info-box">
@@ -13,9 +13,9 @@ const TotalInfoBox = ({ tasks, finishedTasks }) => {
                 <i className="fa fa-fw fa-clock-o" />Total time remaining:&ensp;<strong>{durationToString(secsToDuration(totalSecsRemaining))}</strong>
             </div>
             {
-                finishedTasks.length > 0 ?
-                    <div className="finished-tasks-count">
-                        <Link to="/finished"><i className="fa fa-fw fa-check" />You've finished <strong>{finishedTasks.length}</strong> epoch{finishedTasks.length > 1 ? "s" : ""}!</Link>
+                completedTasks.length > 0 ?
+                    <div className="completed-tasks-count">
+                        <Link to="/completed"><i className="fa fa-fw fa-check" />You've completed <strong>{completedTasks.length}</strong> epoch{completedTasks.length > 1 ? "s" : ""}!</Link>
                     </div>
                 :
                     <div></div>
@@ -26,7 +26,7 @@ const TotalInfoBox = ({ tasks, finishedTasks }) => {
 
 TotalInfoBox.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+    completedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TotalInfoBox;

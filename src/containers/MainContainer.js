@@ -7,7 +7,7 @@ import Main from "../components/Main";
 @connect(function(state) {
     return {
         tasks: state.tasks,
-        finishedTasks: state.finishedTasks,
+        completedTasks: state.completedTasks,
     };
 })
 class MainContainer extends PureComponent {
@@ -30,7 +30,7 @@ class MainContainer extends PureComponent {
         return (
             <Main
                 tasks={this.props.tasks}
-                finishedTasks={this.props.finishedTasks}
+                completedTasks={this.props.completedTasks}
                 editIndex={this.state.editIndex}
                 showEditTaskModal={this.state.showEditTaskModal}
                 toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
