@@ -29,7 +29,7 @@ class MainContainer extends PureComponent {
     render() {
         return (
             <Main
-                tasksArray={this.props.tasks.list}
+                tasks={this.props.tasks}
                 finishedTasks={this.props.finishedTasks}
                 editIndex={this.state.editIndex}
                 showEditTaskModal={this.state.showEditTaskModal}

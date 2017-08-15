@@ -11,6 +11,7 @@ import { togglePaused } from "../actions/togglePaused";
 @connect(function(state) {
     return {
         tasks: state.tasks,
+        states: state.states,
     };
 }, { setTimeRemaining, finishTask, togglePaused })
 class AppContainer extends PureComponent {
@@ -47,17 +48,17 @@ class AppContainer extends PureComponent {
         this.lastTime = Date.now();
         setInterval(() => {
             let secsSinceLast = Math.floor((Date.now() - this.lastTime) / 1000);
-            if (!this.props.tasks.paused && secsSinceLast >= 1 && this.props.tasks.list.length > 0) {
+            if (!this.props.states.paused && secsSinceLast >= 1 && this.props.tasks.length > 0) {
                 this.lastTime = Date.now();
                 while (secsSinceLast > 0) {
-                    if (secsSinceLast > this.props.tasks.list[0].secsRemaining) {  // finish tasks that may not have been finished due to setInterval not runnning
-                        this.finishTaskProxy(0, true, this.props.tasks.list[0]);
-                        secsSinceLast -= this.props.tasks.list[0].secsRemaining;
+                    if (secsSinceLast > this.props.tasks[0].secsRemaining) {  // finish tasks that may not have been finished due to setInterval not runnning
+                        this.finishTaskProxy(0, true, this.props.tasks[0]);
+                        secsSinceLast -= this.props.tasks[0].secsRemaining;
                     } else {  // decrease time remaining for current task
-                        this.props.setTimeRemaining(0, this.props.tasks.list[0].secsRemaining - secsSinceLast);
+                        this.props.setTimeRemaining(0, this.props.tasks[0].secsRemaining - secsSinceLast);
                         secsSinceLast = 0;
-                        if (this.props.tasks.list[0].secsRemaining <= 0) {
-                            this.finishTaskProxy(0, true, this.props.tasks.list[0]);
+                        if (this.props.tasks[0].secsRemaining <= 0) {
+                            this.finishTaskProxy(0, true, this.props.tasks[0]);
                         }
                     }
                 }
@@ -85,18 +86,18 @@ class AppContainer extends PureComponent {
 
     componentDidMount() {
         this.runTimer();
-        document.body.className = this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "";
+        document.body.className = this.props.tasks.length > 0 ? this.props.tasks[0].color : "";
         window.addEventListener("keydown", this.handleKeyPress);
     }
 
     componentWillUpdate(nextProps) {
-        if (this.props.tasks.paused && !nextProps.tasks.paused) {
+        if (this.props.states.paused && !nextProps.states.paused) {
             this.lastTime = Date.now();
         }
     }
 
     componentDidUpdate() {
-        document.body.className = this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "";
+        document.body.className = this.props.tasks.length > 0 ? this.props.tasks[0].color : "";
     }
 
     render() {
@@ -110,7 +111,7 @@ class AppContainer extends PureComponent {
                     <source src={finishedOgg} type="audio/ogg" />
                 </audio>
                 <App
-                    tasksArray={this.props.tasks.list}
+                    tasks={this.props.tasks}
                 />
             </div>
         );

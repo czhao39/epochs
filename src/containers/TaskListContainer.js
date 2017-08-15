@@ -53,13 +53,13 @@ export default class TaskListContainer extends PureComponent {
                 </audio>
                 <EditTaskModal
                     index={this.props.editIndex}
-                    task={this.props.editIndex === undefined ? null : this.props.tasks.list[this.props.editIndex]}
+                    task={this.props.editIndex === undefined ? null : this.props.tasks[this.props.editIndex]}
                     showEditTaskModal={this.props.showEditTaskModal}
                     toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
                     editTask={this.props.editTask}
                 />
                 <TaskList
-                    tasksArray={this.props.tasks.list}
+                    tasks={this.props.tasks}
                     setTimeRemaining={this.props.setTimeRemaining}
                     moveTask={this.props.moveTask}
                     finishTask={(index, done, task) => this.finishTaskProxy(index, done, task)}

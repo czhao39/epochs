@@ -7,11 +7,11 @@ import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControlsBox from "../containers/TaskListControlsBox";
 import TaskListContainer from "../containers/TaskListContainer";
 
-const Main = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => (
+const Main = ({ tasks, finishedTasks, editIndex, showEditTaskModal, toggleEditTaskModal }) => (
     <Grid fluid>
         <div className="total-info-box-wrapper">
             <TotalInfoBox
-                tasksArray={tasksArray}
+                tasks={tasks}
                 finishedTasks={finishedTasks}
             />
         </div>
@@ -38,7 +38,7 @@ const Main = ({ tasksArray, finishedTasks, editIndex, showEditTaskModal, toggleE
 );
 
 Main.propTypes = {
-    tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     editIndex: PropTypes.number,
     showEditTaskModal: PropTypes.bool.isRequired,

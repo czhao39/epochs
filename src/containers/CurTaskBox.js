@@ -14,6 +14,7 @@ import { finishTask } from "../actions/finishTask";
 @connect(function(state) {
     return {
         tasks: state.tasks,
+        paused: state.states.paused,
     };
 }, { togglePaused, moveTask, finishTask })
 export default class CurTaskBox extends PureComponent {
@@ -54,19 +55,19 @@ export default class CurTaskBox extends PureComponent {
                 <Grid fluid>
                     <div className="timer-wrapper">
                         <Timer
-                            paused={this.props.tasks.paused}
-                            secsRemaining={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].secsRemaining : 0}
-                            color={this.props.tasks.list.length > 0 ? this.props.tasks.list[0].color : "grey"}
+                            paused={this.props.paused}
+                            secsRemaining={this.props.tasks.length > 0 ? this.props.tasks[0].secsRemaining : 0}
+                            color={this.props.tasks.length > 0 ? this.props.tasks[0].color : "grey"}
                             togglePaused={this.props.togglePaused}
                         />
                     </div>
                     {
-                        this.props.tasks.list.length > 0 ?
+                        this.props.tasks.length > 0 ?
                             <div>
                                 <Row>
                                     <Col sm={10} md={8} smOffset={1} mdOffset={2}>
                                         <div className="cur-task">
-                                            {this.props.tasks.list[0].name}
+                                            {this.props.tasks[0].name}
                                         </div>
                                     </Col>
                                 </Row>
@@ -74,7 +75,7 @@ export default class CurTaskBox extends PureComponent {
                                     <i
                                         title="Finish"
                                         className="done-button fa fa-fw fa-check"
-                                        onClick={() => this.finishTaskProxy(0, true, this.props.tasks.list[0])}
+                                        onClick={() => this.finishTaskProxy(0, true, this.props.tasks[0])}
                                     />
                                     <i
                                         title="Delete"

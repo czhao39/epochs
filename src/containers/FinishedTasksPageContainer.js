@@ -14,7 +14,7 @@ export default class FinishedTasksPageContainer extends PureComponent {
     render() {
         return (
             <FinishedTasksPage
-                tasksArray={this.props.tasks.list}
+                tasks={this.props.tasks}
                 finishedTasks={this.props.finishedTasks}
             />
         );

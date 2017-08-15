@@ -8,14 +8,14 @@ import MainContainer from "../containers/MainContainer";
 import FinishedTasksPageContainer from "../containers/FinishedTasksPageContainer";;
 
 
-const App = ({ tasksArray }) => {
+const App = ({ tasks }) => {
     return (
         <BrowserRouter>
             <div>
                 <Navbar
                     fluid
                     staticTop
-                    className={tasksArray.length > 0 ? tasksArray[0].color : "grey"}
+                    className={tasks.length > 0 ? tasks[0].color : "grey"}
                 >
                     <Navbar.Header>
                         <Navbar.Brand>
@@ -33,7 +33,7 @@ const App = ({ tasksArray }) => {
 };
 
 App.propTypes = {
-    tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default App;

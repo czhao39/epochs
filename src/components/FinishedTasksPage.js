@@ -6,11 +6,11 @@ import { Grid, Row, Col } from "react-bootstrap";
 import TotalInfoBox from "./TotalInfoBox";
 import FinishedTaskListContainer from "../containers/FinishedTaskListContainer";
 
-const FinishedTasksPage = ({ tasksArray, finishedTasks }) => (
+const FinishedTasksPage = ({ tasks, finishedTasks }) => (
         <Grid fluid>
             <div className="total-info-box-wrapper">
                 <TotalInfoBox
-                    tasksArray={tasksArray}
+                    tasks={tasks}
                     finishedTasks={finishedTasks}
                 />
                 <div className="return-to-timer"><Link to="/"><i className="fa fa-fw fa-long-arrow-left" />Return to the timer!</Link></div>
@@ -25,7 +25,7 @@ const FinishedTasksPage = ({ tasksArray, finishedTasks }) => (
 );
 
 FinishedTasksPage.propTypes = {
-    tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     finishedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

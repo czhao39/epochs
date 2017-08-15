@@ -8,7 +8,7 @@ import TaskItem from "./TaskItem";
 
 class TaskList extends PureComponent {
     getDefaultStyles() {
-        return this.props.tasksArray.map((task) => (
+        return this.props.tasks.map((task) => (
             {
                 key: task.key,
                 data: task,
@@ -21,7 +21,7 @@ class TaskList extends PureComponent {
     }
 
     getStyles() {
-        return this.props.tasksArray.map((task) => (
+        return this.props.tasks.map((task) => (
             {
                 key: task.key,
                 data: task,
@@ -86,7 +86,7 @@ class TaskList extends PureComponent {
 }
 
 TaskList.propTypes = {
-    tasksArray: PropTypes.arrayOf(PropTypes.object).isRequired,
+    tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     setTimeRemaining: PropTypes.func.isRequired,
     moveTask: PropTypes.func.isRequired,
     finishTask: PropTypes.func.isRequired,
