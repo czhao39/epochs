@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { Grid, Row, Col } from "react-bootstrap";
 
 import "../assets/css/CurTaskBox.scss";
-import finishedMp3 from "../assets/finished.mp3";
-import finishedOgg from "../assets/finished.ogg";
 import Timer from "../components/Timer";
 import { togglePaused } from "../actions/togglePaused";
 import { moveTask } from "../actions/moveTask";
@@ -18,40 +16,9 @@ import { finishTask } from "../actions/finishTask";
     };
 }, { togglePaused, moveTask, finishTask })
 export default class CurTaskBox extends PureComponent {
-    /**
-     * Play task completed sound effect
-     *
-     * @return {void}
-     */
-    playSound() {
-        this.audio.play();
-    }
-
-    /**
-     * Play sound on task finished
-     *
-     * @param {number} index
-     * @param {boolean} done
-     * @param {object} task
-     * @return {void}
-     */
-    finishTaskProxy(index, done, task) {
-        if (done) {
-            this.playSound();
-        }
-        this.props.finishTask(index, done, task);
-    }
-
     render() {
         return (
             <div>
-                <audio
-                    ref={(ref) => this.audio = ref}
-                    preload="auto"
-                >
-                    <source src={finishedMp3} type="audio/mpeg" />
-                    <source src={finishedOgg} type="audio/ogg" />
-                </audio>
                 <Grid fluid>
                     <div className="timer-wrapper">
                         <Timer
@@ -75,12 +42,12 @@ export default class CurTaskBox extends PureComponent {
                                     <i
                                         title="Finish"
                                         className="done-button fa fa-fw fa-check"
-                                        onClick={() => this.finishTaskProxy(0, true, this.props.tasks[0])}
+                                        onClick={() => this.props.finishTask(0, true, this.props.tasks[0])}
                                     />
                                     <i
                                         title="Delete"
                                         className="cancel-button fa fa-fw fa-close"
-                                        onClick={() => this.finishTaskProxy(0, false)}
+                                        onClick={() => this.props.finishTask(0, false)}
                                     />
                                     <i
                                         title="Edit"
