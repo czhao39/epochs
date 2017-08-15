@@ -22,7 +22,7 @@ class TaskItem extends PureComponent {
                     <i
                         title="Finish"
                         className="done-button fa fa-fw fa-check"
-                        onClick={() => this.props.finishTask(this.props.index, true, { name: this.props.name, color: this.props.color })}
+                        onClick={() => this.props.finishTask(this.props.index, true, { key: `T${Date.now()}`, name: this.props.name, color: this.props.color })}
                     />
                     <i
                         title="Delete"
