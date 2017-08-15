@@ -10,8 +10,8 @@ class TaskItem extends PureComponent {
         return (
             <div
                 className={`task-item ${this.props.color}${this.props.index === 0 ? " current" : ""}`}
-                onMouseOver={() => this.taskButtons.style.opacity = 1}
-                onMouseOut={() => this.taskButtons.style.opacity = 0}
+                onMouseEnter={() => this.taskButtons.style.opacity = 1}
+                onMouseLeave={() => this.taskButtons.style.opacity = 0}
             >
                 <div className="task-item-time-remaining">{durationToString(secsToDuration(this.props.secsRemaining))}</div>
                 <div className="task-item-name">{this.props.name}</div>
