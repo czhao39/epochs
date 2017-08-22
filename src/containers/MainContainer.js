@@ -6,6 +6,8 @@ import CreateTaskModal from "../components/CreateTaskModal";
 import EditTaskModal from "../components/EditTaskModal";
 import { createTask } from "../actions/createTask";
 import { editTask } from "../actions/editTask";
+import { removeTask } from "../actions/removeTask";
+import { togglePaused } from "../actions/togglePaused";
 
 
 @connect(function(state) {
@@ -13,7 +15,7 @@ import { editTask } from "../actions/editTask";
         tasks: state.tasks,
         completedTasks: state.completedTasks,
     };
-}, { createTask, editTask })
+}, { createTask, editTask, removeTask, togglePaused })
 class MainContainer extends PureComponent {
     state = {
         showCreateTaskModal: false,
@@ -39,6 +41,45 @@ class MainContainer extends PureComponent {
      */
     toggleEditTaskModal(show, index) {
         this.setState({ showEditTaskModal: show, editIndex: index });
+    }
+
+    /**
+     * Handle keyboard shortcuts
+     *
+     * @param {object} event
+     * @return {void}
+     */
+    handleKeyPress(event) {
+        if (this.state.showCreateTaskModal || this.state.showEditTaskModal) {
+            return;
+        }
+        switch (event.key) {
+            case " ":
+                event.preventDefault();
+                this.props.togglePaused();
+                break;
+            case "n":
+                event.preventDefault();
+                this.toggleCreateTaskModal(true);
+                break;
+            case "e":
+                event.preventDefault();
+                this.toggleEditTaskModal(true, 0);
+                break;
+            case "c":
+                event.preventDefault();
+                if (this.props.tasks.length > 0) {
+                    this.props.removeTask(0, true, this.props.tasks[0]);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+    handleKeyPress = this.handleKeyPress.bind(this);
+
+    componentDidMount() {
+        window.addEventListener("keydown", this.handleKeyPress);
     }
 
     renderModals() {

@@ -6,14 +6,13 @@ import completedOgg from "../assets/audio/completed.ogg";
 import App from "../components/App";
 import { setTimeRemaining } from "../actions/setTimeRemaining";
 import { removeTask } from "../actions/removeTask";
-import { togglePaused } from "../actions/togglePaused";
 
 @connect(function(state) {
     return {
         tasks: state.tasks,
         states: state.states,
     };
-}, { setTimeRemaining, removeTask, togglePaused })
+}, { setTimeRemaining, removeTask })
 class AppContainer extends PureComponent {
     /**
      * Play task completed sound effect
@@ -51,28 +50,9 @@ class AppContainer extends PureComponent {
         }, 250);
     }
 
-    /**
-     * Handle keyboard shortcuts
-     *
-     * @param {object} event
-     * @return {void}
-     */
-    handleKeyPress(event) {
-        switch (event.key) {
-            case " ":
-                event.preventDefault();
-                this.props.togglePaused();
-                break;
-            default:
-                return;
-        }
-    }
-    handleKeyPress = this.handleKeyPress.bind(this);
-
     componentDidMount() {
         this.runTimer();
         document.body.className = this.props.tasks.length > 0 ? this.props.tasks[0].color : "";
-        window.addEventListener("keydown", this.handleKeyPress);
     }
 
     componentWillUpdate(nextProps) {
