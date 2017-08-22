@@ -130,6 +130,7 @@ class MainContainer extends PureComponent {
                     completedTasks={this.props.completedTasks}
                     toggleCreateTaskModal={(show) => this.toggleCreateTaskModal(show)}
                     toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
+                    toggleHelpModal={(show) => this.toggleHelpModal(show)}
                 />
             </div>
         );

@@ -7,12 +7,13 @@ import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControls from "./TaskListControls";
 import TaskListContainer from "../containers/TaskListContainer";
 
-const Main = ({ tasks, completedTasks, toggleCreateTaskModal, toggleEditTaskModal }) => (
+const Main = ({ tasks, completedTasks, toggleCreateTaskModal, toggleEditTaskModal, toggleHelpModal }) => (
     <Grid fluid>
         <div className="total-info-box-wrapper">
             <TotalInfoBox
                 tasks={tasks}
                 completedTasks={completedTasks}
+                toggleHelpModal={(show) => toggleHelpModal(show)}
             />
         </div>
         <div className="cur-task-box-wrapper">

@@ -1,0 +1,9 @@
+.total-info-box {
+    display: flex;
+    justify-content: space-between;
+
+    .help {
+        cursor: pointer;
+        color: rgb(51, 122, 183);
+    }
+}
