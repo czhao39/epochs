@@ -6,8 +6,9 @@ import CreateTaskModal from "../components/CreateTaskModal";
 import EditTaskModal from "../components/EditTaskModal";
 import HelpModal from "../components/HelpModal";
 import { createTask } from "../actions/createTask";
-import { editTask } from "../actions/editTask";
 import { removeTask } from "../actions/removeTask";
+import { editTask } from "../actions/editTask";
+import { moveTask } from "../actions/moveTask";
 import { togglePaused } from "../actions/togglePaused";
 
 
@@ -16,7 +17,7 @@ import { togglePaused } from "../actions/togglePaused";
         tasks: state.tasks,
         completedTasks: state.completedTasks,
     };
-}, { createTask, editTask, removeTask, togglePaused })
+}, { createTask, removeTask, editTask, moveTask, togglePaused })
 class MainContainer extends PureComponent {
     state = {
         showCreateTaskModal: false,
@@ -77,15 +78,19 @@ class MainContainer extends PureComponent {
                 event.preventDefault();
                 this.toggleCreateTaskModal(true);
                 break;
-            case "e":
-                event.preventDefault();
-                this.toggleEditTaskModal(true, 0);
-                break;
             case "c":
                 event.preventDefault();
                 if (this.props.tasks.length > 0) {
                     this.props.removeTask(0, true, this.props.tasks[0]);
                 }
+                break;
+            case "e":
+                event.preventDefault();
+                this.toggleEditTaskModal(true, 0);
+                break;
+            case "p":
+                event.preventDefault();
+                this.props.moveTask(0, 1);
                 break;
             case "h":
                 event.preventDefault();

@@ -30,8 +30,16 @@ const HelpModal = ({ showHelpModal, toggleHelpModal }) => (
                             <td>Create new epoch</td>
                         </tr>
                         <tr>
+                            <td><kbd>c</kbd></td>
+                            <td>Complete current task</td>
+                        </tr>
+                        <tr>
                             <td><kbd>e</kbd></td>
                             <td>Edit current epoch</td>
+                        </tr>
+                        <tr>
+                            <td><kbd>p</kbd></td>
+                            <td>Postpone current task</td>
                         </tr>
                         <tr>
                             <td><kbd>h</kbd></td>
