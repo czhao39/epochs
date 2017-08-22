@@ -13,6 +13,10 @@ body {
     margin-bottom: 2rem;
 }
 
+*:focus {
+    outline: none;
+}
+
 a {
     @extend .link;
 }

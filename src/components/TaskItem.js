@@ -6,18 +6,31 @@ import { secsToDuration, durationToString } from "../helpers";
 
 
 class TaskItem extends PureComponent {
+    showButtons() {
+        if (this.taskButtons !== null) {
+            setTimeout(() => {
+                this.taskButtons.style.display = "initial";
+                this.taskButtons.style.opacity = 1;
+            }, 0);
+        }
+    }
+
+    hideButtons() {
+        if (this.taskButtons !== null) {
+            this.taskButtons.style.opacity = 0;
+            setTimeout(() => this.taskButtons.style.display = "none", 200);
+        }
+    }
+
     render() {
         return (
             <div
                 className={`task-item ${this.props.color}${this.props.index === 0 ? " current" : ""}`}
-                onMouseEnter={() => {
-                    this.taskButtons.style.display = "initial";
-                    this.taskButtons.style.opacity = 1;
-                }}
-                onMouseLeave={() => {
-                    this.taskButtons.style.opacity = 0;
-                    setTimeout(() => this.taskButtons.style.display = "none", 200);
-                }}
+                tabIndex="-1"
+                onMouseEnter={() => this.showButtons()}
+                onFocus={() => this.showButtons()}
+                onMouseLeave={() => this.hideButtons()}
+                onBlur={() => this.hideButtons()}
             >
                 <div className="task-item-time-remaining">{durationToString(secsToDuration(this.props.secsRemaining))}</div>
                 <div className="task-item-name">{this.props.name}</div>

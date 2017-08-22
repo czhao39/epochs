@@ -5,12 +5,31 @@ import "../assets/css/TaskItem.scss";
 
 
 class CompletedTaskItem extends PureComponent {
+    showButtons() {
+        if (this.taskButtons !== null) {
+            setTimeout(() => {
+                this.taskButtons.style.display = "initial";
+                this.taskButtons.style.opacity = 1;
+            }, 0);
+        }
+    }
+    showButtons = this.showButtons.bind(this);
+
+    hideButtons() {
+        this.taskButtons.style.opacity = 0;
+        setTimeout(() => this.taskButtons.style.display = "none", 200);
+    }
+    hideButtons = this.hideButtons.bind(this);
+
     render() {
         return (
             <div
                 className={`task-item ${this.props.color}`}
-                onMouseOver={() => this.taskButtons.style.opacity = 1}
-                onMouseOut={() => this.taskButtons.style.opacity = 0}
+                tabIndex="-1"
+                onMouseEnter={() => this.showButtons()}
+                onFocus={() => this.showButtons()}
+                onMouseLeave={() => this.hideButtons()}
+                onBlur={() => this.hideButtons()}
             >
                 <div className="task-item-name">{this.props.name}</div>
                 <div
