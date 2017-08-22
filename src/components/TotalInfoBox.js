@@ -22,7 +22,7 @@ const TotalInfoBox = ({ tasks, completedTasks }) => {
             }
         </div>
     );
-}
+};
 
 TotalInfoBox.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
