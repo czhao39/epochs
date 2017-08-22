@@ -7,6 +7,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
 import { setStoreState } from "./actions/setStoreState";
+import registerServiceWorker from "./registerServiceWorker";
 
 
 /**
@@ -22,6 +23,7 @@ function renderApp(store) {
         </Provider>
         , document.getElementById("root")
     );
+    registerServiceWorker();
 }
 
 // Attempts to use local storage for store state, if it exists
