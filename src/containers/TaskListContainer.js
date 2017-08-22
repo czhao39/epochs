@@ -23,7 +23,7 @@ export default class TaskListContainer extends PureComponent {
                     moveTask={this.props.moveTask}
                     removeTask={this.props.removeTask}
                     createTask={this.props.createTask}
-                    toggleEditTaskModal={(show, index) => this.props.toggleEditTaskModal(show, index)}
+                    toggleEditTaskModal={this.props.toggleEditTaskModal}
                 />
             </div>
         );

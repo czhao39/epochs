@@ -35,6 +35,7 @@ class TaskEditor extends PureComponent {
         let task = { secsRemaining: durationToSecs(duration), name: this.state.taskName, color: this.state.color };
         this.props.submitTask(task);
     }
+    submit = this.submit.bind(this);
 
     isInputValid() {
         return this.state.hours.length > 0 && this.state.mins.length > 0 && this.state.taskName.length > 0 && this.state.color.length > 0 && isFinite(this.state.hours) && Number(this.state.hours) >= 0 && isFinite(this.state.mins) && Number(this.state.mins) >= 0;
@@ -49,13 +50,14 @@ class TaskEditor extends PureComponent {
             }
         }
     }
+    processKey = this.processKey.bind(this);
 
     render() {
         return (
             <Grid
                 fluid
                 tabIndex="-1"
-                onKeyDown={(event) => this.processKey(event)}
+                onKeyDown={this.processKey}
             >
                 <Row>
                     <Col xs={12} sm={3}>
@@ -117,7 +119,7 @@ class TaskEditor extends PureComponent {
                 <div className="submit-button-div">
                     <Button
                         className="submit-button"
-                        onClick={() => this.submit()}
+                        onClick={this.submit}
                         disabled={!this.isInputValid()}
                     >
                         Submit

@@ -22,6 +22,7 @@ class AppContainer extends PureComponent {
     playSound() {
         this.audio.play();
     }
+    playSound = this.playSound.bind(this);
 
     /**
      * Run the timer, which updates every 250 ms

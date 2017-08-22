@@ -14,6 +14,7 @@ class TaskItem extends PureComponent {
             }, 0);
         }
     }
+    showButtons = this.showButtons.bind(this);
 
     hideButtons() {
         if (this.taskButtons !== null) {
@@ -21,16 +22,17 @@ class TaskItem extends PureComponent {
             setTimeout(() => this.taskButtons.style.display = "none", 200);
         }
     }
+    hideButtons = this.hideButtons.bind(this);
 
     render() {
         return (
             <div
                 className={`task-item ${this.props.color}${this.props.index === 0 ? " current" : ""}`}
                 tabIndex="-1"
-                onMouseEnter={() => this.showButtons()}
-                onFocus={() => this.showButtons()}
-                onMouseLeave={() => this.hideButtons()}
-                onBlur={() => this.hideButtons()}
+                onMouseEnter={this.showButtons}
+                onFocus={this.showButtons}
+                onMouseLeave={this.hideButtons}
+                onBlur={this.hideButtons}
             >
                 <div className="task-item-time-remaining">{durationToString(secsToDuration(this.props.secsRemaining))}</div>
                 <div className="task-item-name">{this.props.name}</div>

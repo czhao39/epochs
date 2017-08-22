@@ -13,25 +13,25 @@ const Main = ({ tasks, completedTasks, toggleCreateTaskModal, toggleEditTaskModa
             <InfoBar
                 tasks={tasks}
                 completedTasks={completedTasks}
-                toggleHelpModal={(show) => toggleHelpModal(show)}
+                toggleHelpModal={toggleHelpModal}
                 showHelp
             />
         </div>
         <div className="cur-task-box-wrapper">
             <CurTaskBox
-                toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
+                toggleEditTaskModal={toggleEditTaskModal}
             />
         </div>
         <div className="task-list-controls-box-wrapper">
             <TaskListControls
-                toggleCreateTaskModal={(show) => toggleCreateTaskModal(show)}
+                toggleCreateTaskModal={toggleCreateTaskModal}
             />
         </div>
         <Row>
             <Col xs={12} sm={8} md={6} smOffset={2} mdOffset={3}>
                 <div className="task-list-wrapper">
                     <TaskListContainer
-                        toggleEditTaskModal={(show, index) => toggleEditTaskModal(show, index)}
+                        toggleEditTaskModal={toggleEditTaskModal}
                     />
                 </div>
             </Col>

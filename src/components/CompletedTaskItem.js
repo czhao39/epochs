@@ -26,10 +26,10 @@ class CompletedTaskItem extends PureComponent {
             <div
                 className={`task-item ${this.props.color}`}
                 tabIndex="-1"
-                onMouseEnter={() => this.showButtons()}
-                onFocus={() => this.showButtons()}
-                onMouseLeave={() => this.hideButtons()}
-                onBlur={() => this.hideButtons()}
+                onMouseEnter={this.showButtons}
+                onFocus={this.showButtons}
+                onMouseLeave={this.hideButtons}
+                onBlur={this.hideButtons}
             >
                 <div className="task-item-name">{this.props.name}</div>
                 <div

@@ -33,6 +33,7 @@ class MainContainer extends PureComponent {
     toggleCreateTaskModal(show) {
         this.setState({ showCreateTaskModal: show });
     }
+    toggleCreateTaskModal = this.toggleCreateTaskModal.bind(this);
 
     /**
      * Toggle task editor modal
@@ -44,6 +45,7 @@ class MainContainer extends PureComponent {
     toggleEditTaskModal(show, index) {
         this.setState({ showEditTaskModal: show, editIndex: index });
     }
+    toggleEditTaskModal = this.toggleEditTaskModal.bind(this);
 
     /**
      * Toggle help modal
@@ -54,6 +56,7 @@ class MainContainer extends PureComponent {
     toggleHelpModal(show) {
         this.setState({ showHelpModal: show });
     }
+    toggleHelpModal = this.toggleHelpModal.bind(this);
 
     /**
      * Handle keyboard shortcuts
@@ -103,19 +106,19 @@ class MainContainer extends PureComponent {
             <div>
                 <CreateTaskModal
                     showCreateTaskModal={this.state.showCreateTaskModal}
-                    toggleCreateTaskModal={(show) => this.toggleCreateTaskModal(show)}
+                    toggleCreateTaskModal={this.toggleCreateTaskModal}
                     createTask={this.props.createTask}
                 />
                 <EditTaskModal
                     index={this.state.editIndex}
                     task={this.state.editIndex === undefined ? null : this.props.tasks[this.state.editIndex]}
                     showEditTaskModal={this.state.showEditTaskModal}
-                    toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
+                    toggleEditTaskModal={this.toggleEditTaskModal}
                     editTask={this.props.editTask}
                 />
                 <HelpModal
                     showHelpModal={this.state.showHelpModal}
-                    toggleHelpModal={(show) => this.toggleHelpModal(show)}
+                    toggleHelpModal={this.toggleHelpModal}
                 />
             </div>
         );
@@ -128,9 +131,9 @@ class MainContainer extends PureComponent {
                 <Main
                     tasks={this.props.tasks}
                     completedTasks={this.props.completedTasks}
-                    toggleCreateTaskModal={(show) => this.toggleCreateTaskModal(show)}
-                    toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
-                    toggleHelpModal={(show) => this.toggleHelpModal(show)}
+                    toggleCreateTaskModal={this.toggleCreateTaskModal}
+                    toggleEditTaskModal={this.toggleEditTaskModal}
+                    toggleHelpModal={this.toggleHelpModal}
                 />
             </div>
         );
