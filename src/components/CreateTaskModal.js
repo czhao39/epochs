@@ -14,7 +14,7 @@ class CreateTaskModal extends PureComponent {
      */
     submitTask(task) {
         this.props.createTask({ ...task, key: `T${Date.now()}` });
-        this.props.hideCreateTaskModal();
+        this.props.toggleCreateTaskModal(false);
     }
     submitTask = this.submitTask.bind(this);
 
@@ -22,7 +22,7 @@ class CreateTaskModal extends PureComponent {
         return (
             <Modal
                 show={this.props.showCreateTaskModal}
-                onHide={this.props.hideCreateTaskModal}
+                onHide={() => this.props.toggleCreateTaskModal(false)}
                 dialogClassName="create-task-modal"
             >
                 <Modal.Header closeButton>
@@ -38,7 +38,7 @@ class CreateTaskModal extends PureComponent {
 
 CreateTaskModal.propTypes = {
     showCreateTaskModal: PropTypes.bool.isRequired,
-    hideCreateTaskModal: PropTypes.func.isRequired,
+    toggleCreateTaskModal: PropTypes.func.isRequired,
     createTask: PropTypes.func.isRequired,
 };
 

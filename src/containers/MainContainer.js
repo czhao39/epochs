@@ -46,12 +46,12 @@ class MainContainer extends PureComponent {
             <div>
                 <CreateTaskModal
                     showCreateTaskModal={this.state.showCreateTaskModal}
-                    hideCreateTaskModal={() => this.hideCreateTaskModal()}
+                    toggleCreateTaskModal={(show) => this.toggleCreateTaskModal(show)}
                     createTask={this.props.createTask}
                 />
                 <EditTaskModal
-                    index={this.props.editIndex}
-                    task={this.props.editIndex === undefined ? null : this.props.tasks[this.props.editIndex]}
+                    index={this.state.editIndex}
+                    task={this.state.editIndex === undefined ? null : this.props.tasks[this.state.editIndex]}
                     showEditTaskModal={this.state.showEditTaskModal}
                     toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
                     editTask={this.props.editTask}
@@ -67,8 +67,7 @@ class MainContainer extends PureComponent {
                 <Main
                     tasks={this.props.tasks}
                     completedTasks={this.props.completedTasks}
-                    editIndex={this.state.editIndex}
-                    toggleCreateTaskModal={(show, index) => this.toggleCreateTaskModal(show, index)}
+                    toggleCreateTaskModal={(show) => this.toggleCreateTaskModal(show)}
                     toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
                 />
             </div>
