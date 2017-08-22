@@ -86,11 +86,15 @@ class MainContainer extends PureComponent {
                 break;
             case "e":
                 event.preventDefault();
-                this.toggleEditTaskModal(true, 0);
+                if (this.props.tasks.length > 0) {
+                    this.toggleEditTaskModal(true, 0);
+                }
                 break;
             case "p":
                 event.preventDefault();
-                this.props.moveTask(0, 1);
+                if (this.props.tasks.length >= 2) {
+                    this.props.moveTask(0, 1);
+                }
                 break;
             case "h":
                 event.preventDefault();
