@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Main from "../components/Main";
 import CreateTaskModal from "../components/CreateTaskModal";
 import EditTaskModal from "../components/EditTaskModal";
+import HelpModal from "../components/HelpModal";
 import { createTask } from "../actions/createTask";
 import { editTask } from "../actions/editTask";
 import { removeTask } from "../actions/removeTask";
@@ -20,6 +21,7 @@ class MainContainer extends PureComponent {
     state = {
         showCreateTaskModal: false,
         showEditTaskModal: false,
+        showHelpModal: false,
     };
 
     /**
@@ -44,13 +46,23 @@ class MainContainer extends PureComponent {
     }
 
     /**
+     * Toggle help modal
+     *
+     * @param {boolean} show
+     * @return {void}
+     */
+    toggleHelpModal(show) {
+        this.setState({ showHelpModal: show });
+    }
+
+    /**
      * Handle keyboard shortcuts
      *
      * @param {object} event
      * @return {void}
      */
     handleKeyPress(event) {
-        if (this.state.showCreateTaskModal || this.state.showEditTaskModal) {
+        if (this.state.showCreateTaskModal || this.state.showEditTaskModal || this.state.showHelpModal) {
             return;
         }
         switch (event.key) {
@@ -71,6 +83,10 @@ class MainContainer extends PureComponent {
                 if (this.props.tasks.length > 0) {
                     this.props.removeTask(0, true, this.props.tasks[0]);
                 }
+                break;
+            case "h":
+                event.preventDefault();
+                this.toggleHelpModal(true);
                 break;
             default:
                 break;
@@ -96,6 +112,10 @@ class MainContainer extends PureComponent {
                     showEditTaskModal={this.state.showEditTaskModal}
                     toggleEditTaskModal={(show, index) => this.toggleEditTaskModal(show, index)}
                     editTask={this.props.editTask}
+                />
+                <HelpModal
+                    showHelpModal={this.state.showHelpModal}
+                    toggleHelpModal={(show) => this.toggleHelpModal(show)}
                 />
             </div>
         );
