@@ -6,7 +6,6 @@ import AppContainer from "./containers/AppContainer";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./reducers";
-import { setStoreState } from "./actions/setStoreState";
 import registerServiceWorker from "./registerServiceWorker";
 
 
@@ -27,12 +26,14 @@ function renderApp(store) {
 }
 
 // Attempts to use local storage for store state, if it exists
-localforage.getItem("store").then((localStoreState) => {
-    let store = createStore(rootReducer);
+localforage.getItem("reduxStore").then((localStoreState) => {
+    let store;
     if (localStoreState !== null) {
         localStoreState.states.paused = true;  // make timer paused initially
-        store.dispatch(setStoreState(localStoreState));
+        store = createStore(rootReducer, localStoreState);
+    } else {
+        store = createStore(rootReducer);
     }
-    store.subscribe(() => localforage.setItem("store", store.getState()));
+    store.subscribe(() => localforage.setItem("reduxStore", store.getState()));
     renderApp(store);
 });

@@ -3,7 +3,6 @@ import { MOVE_TASK } from "../actions/moveTask";
 import { REMOVE_TASK } from "../actions/removeTask";
 import { CREATE_TASK } from "../actions/createTask";
 import { EDIT_TASK } from "../actions/editTask";
-import { SET_STORE_STATE } from "../actions/setStoreState";
 import { durationToSecs } from "../helpers";
 
 
@@ -46,9 +45,6 @@ export default function tasks(state=DEFAULT_TASKS, action) {
         case EDIT_TASK:
             newState = [...state];
             newState[action.index] = { key: state[action.index].key, ...action.newTask };
-            return newState;
-        case SET_STORE_STATE:
-            newState = action.state.tasks;
             return newState;
         default:
             return state;
