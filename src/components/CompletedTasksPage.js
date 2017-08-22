@@ -1,19 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Grid, Row, Col } from "react-bootstrap";
 
-import TotalInfoBox from "./TotalInfoBox";
+import InfoBar from "./InfoBar";
 import CompletedTaskListContainer from "../containers/CompletedTaskListContainer";
 
 const CompletedTasksPage = ({ tasks, completedTasks }) => (
     <Grid fluid>
-        <div className="total-info-box-wrapper">
-            <TotalInfoBox
+        <div className="info-bar-wrapper">
+            <InfoBar
                 tasks={tasks}
                 completedTasks={completedTasks}
+                showReturn
             />
-            <div className="return-to-timer"><Link to="/"><i className="fa fa-fw fa-long-arrow-left" />Return to the timer!</Link></div>
         </div>
         <div className="completed-title">Completed Epochs</div>
         <Row>

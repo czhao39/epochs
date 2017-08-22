@@ -2,18 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Grid, Row, Col } from "react-bootstrap";
 
-import TotalInfoBox from "./TotalInfoBox";
+import InfoBar from "./InfoBar";
 import CurTaskBox from "../containers/CurTaskBox";
 import TaskListControls from "./TaskListControls";
 import TaskListContainer from "../containers/TaskListContainer";
 
 const Main = ({ tasks, completedTasks, toggleCreateTaskModal, toggleEditTaskModal, toggleHelpModal }) => (
     <Grid fluid>
-        <div className="total-info-box-wrapper">
-            <TotalInfoBox
+        <div className="info-bar-wrapper">
+            <InfoBar
                 tasks={tasks}
                 completedTasks={completedTasks}
                 toggleHelpModal={(show) => toggleHelpModal(show)}
+                showHelp
             />
         </div>
         <div className="cur-task-box-wrapper">

@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import "../assets/css/TotalInfoBox.scss";
+import "../assets/css/InfoBar.scss";
 import { secsToDuration, durationToString } from "../helpers";
 
 
-const TotalInfoBox = ({ tasks, completedTasks, toggleHelpModal }) => {
+const InfoBar = ({ tasks, completedTasks, toggleHelpModal, showReturn, showHelp }) => {
     let totalSecsRemaining = tasks.reduce((partialSum, task) => partialSum + task.secsRemaining, 0);
     return (
-        <div className="total-info-box">
+        <div className="info-bar">
             <div className="first-col">
                 <div className="total-time-remaining">
                     <i className="fa fa-fw fa-clock-o" />Total time remaining:&ensp;<strong>{durationToString(secsToDuration(totalSecsRemaining))}</strong>
@@ -22,23 +22,38 @@ const TotalInfoBox = ({ tasks, completedTasks, toggleHelpModal }) => {
                     :
                         <div></div>
                 }
+                {
+                    showReturn ?
+                        <div className="return-to-timer">
+                            <Link to="/"><i className="fa fa-fw fa-long-arrow-left" />Return to the timer!</Link>
+                        </div>
+                    :
+                        <div></div>
+                }
             </div>
             <div className="second-col">
-                <div
-                    className="help"
-                    onClick={() => toggleHelpModal(true)}
-                >
-                    <i className="fa fa-fw fa-info-circle" />Help
-                </div>
+                {
+                    showHelp ?
+                        <div
+                            className="help"
+                            onClick={() => toggleHelpModal(true)}
+                        >
+                            <i className="fa fa-fw fa-info-circle" />Help
+                        </div>
+                    :
+                        <div></div>
+                }
             </div>
         </div>
     );
 };
 
-TotalInfoBox.propTypes = {
+InfoBar.propTypes = {
     tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
     completedTasks: PropTypes.arrayOf(PropTypes.object).isRequired,
-    toggleHelpModal: PropTypes.func.isRequired,
+    toggleHelpModal: PropTypes.func,
+    showReturn: PropTypes.bool,
+    showHelp: PropTypes.bool,
 };
 
-export default TotalInfoBox;
+export default InfoBar;
