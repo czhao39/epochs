@@ -1,10 +1,11 @@
+@import "constants";
+
 .info-bar {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
     .help {
-        cursor: pointer;
-        color: rgb(51, 122, 183);
+        @extend .link;
     }
 }

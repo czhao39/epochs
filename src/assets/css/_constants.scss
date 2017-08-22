@@ -67,3 +67,9 @@ $task-color-purple: #9C27B0;
 .task-stroke {
     @include colorify(stroke);
 }
+
+.link, .link:hover {
+    cursor: pointer;
+    color: #2979FF;
+    text-decoration: none;
+}
