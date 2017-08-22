@@ -22,10 +22,16 @@ export default function tasks(state=DEFAULT_TASKS, action) {
     let newState;
     switch (action.type) {
         case SET_TIME_REMAINING:
+            if (state.length === 0) {
+                return state;
+            }
             newState = [...state];
             newState[action.index].secsRemaining = typeof action.time === "object" ? durationToSecs(action.time) : action.time;
             return newState;
         case MOVE_TASK:
+            if (state.length <= 1) {
+                return state;
+            }
             newState = [...state];
             if (action.newIndex < 0) {
                 action.newIndex += newState.length;
@@ -36,6 +42,9 @@ export default function tasks(state=DEFAULT_TASKS, action) {
             newState = state.filter((task, index) => index !== action.index);
             return newState;
         case CREATE_TASK:
+            if (!action.task) {
+                return state;
+            }
             if (action.index === undefined || action.index  > state.length) {
                 newState = [...state, action.task];
             } else {
@@ -43,6 +52,9 @@ export default function tasks(state=DEFAULT_TASKS, action) {
             }
             return newState;
         case EDIT_TASK:
+            if (action.index >= state.length || !action.newTask) {
+                return state;
+            }
             newState = [...state];
             newState[action.index] = { key: state[action.index].key, ...action.newTask };
             return newState;

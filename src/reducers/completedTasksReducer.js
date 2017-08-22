@@ -13,7 +13,7 @@ export default function completedTasks(state=[], action) {
     let newState;
     switch (action.type) {
         case REMOVE_TASK:
-            if (action.completed) {
+            if (action.completed && action.task) {
                 newState = [...state, action.task]
                 return newState;
             }
