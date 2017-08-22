@@ -1,5 +1,6 @@
 import { REMOVE_TASK } from "../actions/removeTask";
 import { REMOVE_COMPLETED_TASK } from "../actions/removeCompletedTask";
+import { SET_STORE_STATE } from "../actions/setStoreState";
 
 
 /**
@@ -20,6 +21,9 @@ export default function completedTasks(state=[], action) {
             return state;
         case REMOVE_COMPLETED_TASK:
             newState = state.filter((task, index) => index !== action.index);
+            return newState;
+        case SET_STORE_STATE:
+            newState = action.state.completedTasks;
             return newState;
         default:
             return state;

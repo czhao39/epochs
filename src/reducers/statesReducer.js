@@ -1,5 +1,6 @@
 import { TOGGLE_PAUSED } from "../actions/togglePaused";
 import { REMOVE_TASK } from "../actions/removeTask";
+import { SET_STORE_STATE } from "../actions/setStoreState";
 
 
 const DEFAULT_STATES = {
@@ -28,6 +29,9 @@ export default function states(state=DEFAULT_STATES, action) {
             if (action.completed) {
                 newState.removingCompletedTask = true;
             }
+            return newState;
+        case SET_STORE_STATE:
+            newState = action.state.states;
             return newState;
         default:
             return newState;
