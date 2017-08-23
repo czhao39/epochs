@@ -110,6 +110,10 @@ class MainContainer extends PureComponent {
         window.addEventListener("keydown", this.handleKeyPress);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener("keydown", this.handleKeyPress);
+    }
+
     renderModals() {
         return (
             <div>
