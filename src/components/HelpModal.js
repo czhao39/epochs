@@ -47,6 +47,7 @@ const HelpModal = ({ showHelpModal, toggleHelpModal }) => (
                         </tr>
                     </tbody>
                 </Table>
+                <a href="https://icons8.com/icon/15850/Hourglass">Hourglass icon credits</a>
             </Modal.Body>
         </Modal.Header>
     </Modal>
