@@ -3,6 +3,9 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Navbar } from "react-bootstrap";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "roboto-fontface/css/roboto/sass/roboto-fontface-regular.scss";
+import "font-awesome/css/font-awesome.min.css";
 import "../assets/css/App.scss";
 import MainContainer from "../containers/MainContainer";
 import CompletedTasksPageContainer from "../containers/CompletedTasksPageContainer";;
