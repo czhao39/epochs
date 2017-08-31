@@ -19,7 +19,8 @@ const isLocalhost = Boolean(
 );
 
 export default function register() {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  // if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
@@ -29,17 +30,17 @@ export default function register() {
       return;
     }
 
-    window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+    // window.addEventListener('load', () => {
+    const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
-      if (!isLocalhost) {
-        // Is not local host. Just register service worker
-        registerValidSW(swUrl);
-      } else {
-        // This is running on localhost. Lets check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl);
-      }
-    });
+    if (!isLocalhost) {
+    // Is not local host. Just register service worker
+    registerValidSW(swUrl);
+    } else {
+    // This is running on localhost. Lets check if a service worker still exists or not.
+    checkValidServiceWorker(swUrl);
+    }
+    //});
   }
 }
 
